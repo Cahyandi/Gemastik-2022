@@ -22,4 +22,4 @@ Route::get('/gemastik', function () {
     return view('Gemastik');
 });
 
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
