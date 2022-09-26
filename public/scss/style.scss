@@ -79,6 +79,37 @@ body {
   right: 10%!important;
 }
 
+//Destinasi Wisata
+.daftar-wisata{
+  padding-top: 10em;
+  margin-bottom: 10em;
+  .carousel-caption-destinasi{
+    position: absolute;
+    right: 15%;
+    bottom: 0.75rem;
+    left: 15%;
+    padding-top: 1.25rem;
+    color: #fff;
+    text-align: center;
+  }
+}
+
+
+//Inspirasi
+.inspirasi-wisata{
+  margin-bottom: 10em;
+}
+
+//Footer
+.footer{
+  padding-top: 5em;
+  padding-bottom: 2em;
+  background-color: #1E1E1E;
+  i{
+    font-size: 25px;
+  }
+}
+
 
 //GLOBAL
 input{
@@ -98,3 +129,14 @@ input{
     border-radius: 20px;
     box-shadow: inset 15px 15px 15px #cbced1, inset -10px -10px 10px #fff;
 }
+
+.title{
+  font-size: 2em;
+}
+.strip{
+  width: 80px;
+  height: 8px;
+  background-color: gray;
+  margin-bottom: 20px;
+}
+
