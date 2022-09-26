@@ -24,11 +24,7 @@
     <nav class="navbar sticky-top navbar-expand-lg navbar-light ">
         <div class="container ">
             <a class="navbar-brand" href="#">
-<<<<<<< HEAD
                 <img src="/image/logo_sipaku.png" alt="" width="150">
-=======
-                <img src="/image/logo_sipaku.png" alt="" width="70">
->>>>>>> fac473c0ff3504f90984b1b4033da458d76ff5dc
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -47,10 +43,9 @@
                     </li>
                     <li class="nav-item d-flex">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             LOGIN
                         </button>
-
                         <a class="nav-link text-white" href="#">Daftar</a>
                     </li>
                 </ul>
