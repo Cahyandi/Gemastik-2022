@@ -1,14 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Acme&family=Montserrat:wght@500&family=Open+Sans:wght@500&family=Orbitron:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,400;1,500;1,600&family=Roboto+Condensed&display=swap");
-*, html, body {
+*,
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  background-color: D9D9D9;
+  text-decoration: none;
+}
+
+.modal-content {
+  background-color: #ecf0f3 !important;
+}
+
+.modal-header {
+  border-bottom: none !important;
+  padding: unset !important;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.modal-body {
+  padding: unset !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.modal-footer {
+  border-top: none !important;
+  padding: unset !important;
+  justify-content: center !important;
 }
 
 .slider {
-  margin-top: -95px;
+  margin-top: -110px;
 }
 
 .carousel-item {
@@ -18,7 +46,6 @@
 .carousel-item img {
   height: 100%;
   width: 100%;
-  background-size: cover;
   object-fit: cover;
 }
 .carousel-item .carousel-caption .container h5 {
@@ -42,6 +69,25 @@
   bottom: 16.25rem !important;
   left: 10% !important;
   right: 10% !important;
+}
+
+input {
+  font-size: 14px !important;
+  width: 100%;
+  display: block;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1rem;
+  color: #000 !important;
+  padding: 8px 13px 8px 8px;
+}
+
+.form-field {
+  padding-left: 10px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: inset 15px 15px 15px #cbced1, inset -10px -10px 10px #fff;
 }
 
 /*# sourceMappingURL=main.css.map */
