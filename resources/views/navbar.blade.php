@@ -13,9 +13,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    <!-- Slider -->
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <!-- Box icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- or -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <title>Navbar</title>
 </head>
 
@@ -23,7 +24,7 @@
     <nav class="navbar sticky-top navbar-expand-lg navbar-light ">
         <div class="container ">
             <a class="navbar-brand" href="#">
-                <img src="/public/image/logo_sipaku.png" alt="" width="30" height="24">Logo
+                <img src="/image/logo_sipaku.png" alt="" width="150">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,42 +35,151 @@
                         <a class="nav-link active text-white" aria-current="page" href="#">BERANDA</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">TENTANG</a>
+                        <a class="nav-link text-white" href="#">DAFTAR WISATA</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">GALLERY</a>
+
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">DAFTAR WISATA</a>
+                    <li class="nav-item d-flex">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            LOGIN
+                        </button>
+
+                        <a class="nav-link text-white" href="#">Daftar</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="slider">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div> -->
+
+                <!--  -->
+                <form class="p-3 mt-3" action="" method="POST">
+                    <div class="form-field d-flex align-items-center">
+                        <span class="far fa-user"></span>
+                        <input type="text" name="username" id="userName" placeholder="Username">
+                    </div>
+                    <div class="form-field d-flex align-items-center">
+                        <span class="fas fa-key"></span>
+                        <input type="password" name="password" id="pwd" placeholder="Password">
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" name="submit">Sign In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="slider">
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src=" https://images.unsplash.com/photo-1531975474574-e9d2732e8386?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bW91bnRpbiUyMGluZG9uZXNpYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="...">
+                    <img src="/image/img_1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block ">
+                        <div class="container d-flex align-items-baseline flex-column">
+                            <h5>SELAMAT DATANG DI</h5>
+                            <h1>PARIWISATA KUNINGAN</h1>
+                            <button type="button" class="btn btn-info text-white">Baca Selengkapnya
+                                <i class='bx bxs-chevron-right'></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1442544213729-6a15f1611937?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW91bnRpbiUyMGluZG9uZXNpYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="...">
+                    <img src="/image/img_2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block ">
+                        <div class="container d-flex align-items-center flex-column">
+                            <h5>SELAMAT DATANG DI</h5>
+                            <h1>PARIWISATA KUNINGAN</h1>
+                            <button type="button" class="btn text-white" style="background-color: #6610f2;">Baca Selengkapnya
+                                <i class='bx bxs-chevron-right'></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1513415756790-2ac1db1297d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bW91bnRpbiUyMGluZG9uZXNpYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="...">
+                    <img src="/image/img_3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block ">
+                        <div class="container d-flex align-items-baseline flex-column">
+                            <h5>Hayu Berwisata Di</h5>
+                            <h1>Kabupaten KUNINGAN</h1>
+                            <button type="button" class="btn btn-info text-white">Baca Selengkapnya
+                                <i class='bx bxs-chevron-right'></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev" style="width: 5%!important;">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next" style="width: 5%!important;">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-    </div>
+    </section>
+
+    <section class="daftar-wisata" style="width: 100%; height: 100vh; background-color: aquamarine;">
+        <div class="container">
+            <span class="title">DESNITASI WISATA</span>
+            <label></label>
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="..." class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>First slide label</h5>
+                            <p>Some representative placeholder content for the first slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Second slide label</h5>
+                            <p>Some representative placeholder content for the second slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Third slide label</h5>
+                            <p>Some representative placeholder content for the third slide.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
 </body>
 
 </html>
