@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Wisata extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
+    protected $table = 'wisatas';
+
+    public function Dinas()
+    {
+        return $this->belongsTo(Dinas::class, 'id_dinas');
+    }
 }

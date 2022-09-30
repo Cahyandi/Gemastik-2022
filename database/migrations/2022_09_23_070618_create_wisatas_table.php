@@ -18,12 +18,14 @@ class CreateWisatasTable extends Migration
             $table->foreignId('id_dinas');
             $table->string('nama_wisata');
             $table->string('img_wisata');
-            $table->string('galeri_satu');
-            $table->string('galeri_dua');
-            $table->string('galeri_tiga');
+            // $table->string('galeri_satu');
+            // $table->string('galeri_dua');
+            // $table->string('galeri_tiga');
             $table->text('alamat');
             $table->text('deskripsi');
             $table->string('harga_tiket');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->timestamps();
         });
     }

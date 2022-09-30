@@ -42,15 +42,22 @@
                         <a class="nav-link text-white" href="#">Gallery</a>
 
                     </li>
-                    <li class="nav-item d-flex gap-3">
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#login">
-                            Login
-                        </button>
-                        <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#daftar">
-                            Daftar
-                        </button>
-                    </li>
+                    @if (!Auth::check())
+                        <li class="nav-item d-flex gap-3">
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#login">
+                                Login
+                            </button>
+                            <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#daftar">
+                                Daftar
+                            </button>
+                        </li>
+                    @else
+                        <li class="nav-item d-flex gap-3">
+                            <!-- Button trigger modal -->
+                            <a href="logout" class="btn btn-primary fw-bold">Logout</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -69,22 +76,23 @@
                 </div>
                 <div class="modal-body">
                     <!--  -->
-                    <form class="" action="" method="POST">
+                    <form class="" action="authenticate" method="POST">
+                        @csrf
                         <div class="form-field d-flex align-items-center pb-1">
                             <input type="text" name="username" placeholder="Masukkan Username">
                         </div>
                         <div class="form-field d-flex align-items-center">
                             <input type="password" name="password" placeholder="Masukkan Password">
                         </div>
+                        <p style="font-size: 14px; color: #adb5bd;">Belum Mempunyai Akun?
+                            <a href="" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#daftar" data-bs-dismiss="modal">Daftar Sekarang</a>
+                        </p>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" name="submit">Login</button>
+                        </div>
                     </form>
 
-                    <p style="font-size: 14px; color: #adb5bd;">Belum Mempunyai Akun?
-                        <a href="" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#daftar" data-bs-dismiss="modal">Daftar Sekarang</a>
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" name="submit">Login</button>
                 </div>
             </div>
         </div>
@@ -103,12 +111,13 @@
                 </div>
                 <div class="modal-body">
                     <!--  -->
-                    <form class="" action="" method="POST">
+                    <form class="" action="register" method="POST">
+                        @csrf
                         <div class="form-field d-flex align-items-center pb-1">
-                            <input type="text" name="name" id="userName" placeholder="Masukkan Nama"">
+                            <input type="text" name="name" id="userName" placeholder="Masukkan Nama">
                         </div>
                         <div class=" form-field d-flex align-items-center pb-1">
-                            <input type="number" name="telpon" id="userName" placeholder="Masukkan Telpon">
+                            <input type="number" name="no_telp" id="userName" placeholder="Masukkan Telpon">
                         </div>
                         <div class="form-field d-flex align-items-center pb-1">
                             <input type="text" name="email" id="userName" placeholder="Masukkan Email">
@@ -119,15 +128,14 @@
                         <div class="form-field d-flex align-items-center">
                             <input type="password" name="password" id="pwd" placeholder="Masukkan Password">
                         </div>
+                        <p style="font-size: 14px; color: #adb5bd;">Sudah Mempunyai Akun?
+                            <a href="" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#daftar" data-bs-dismiss="modal">Login Sekarang</a>
+                        </p>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" name="submit">Login</button>
+                        </div>
                     </form>
-
-                    <p style="font-size: 14px; color: #adb5bd;">Sudah Mempunyai Akun?
-                        <a href="" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#daftar" data-bs-dismiss="modal">Login Sekarang</a>
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" name="submit">Login</button>
                 </div>
             </div>
         </div>

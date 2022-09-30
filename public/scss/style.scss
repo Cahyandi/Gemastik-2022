@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Acme&family=Montserrat:wght@500&family=Open+Sans:wght@500&family=Orbitron:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,400;1,500;1,600&family=Roboto+Condensed&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Montserrat:wght@500&family=Open+Sans:wght@500&family=Orbitron:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,400;1,500;1,600&family=Roboto+Condensed&display=swap');
 
+$font : 'Roboto Condensed', sans-serif;
 @mixin center {
   display: flex;
   justify-content: center;
@@ -8,18 +10,38 @@
 }
 
 
+
+
 *,
 html,
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: "Poppins", sans-serif;
     text-decoration: none;
 }
 
+// navbar
+.bgcolor.srolled{
+  background: linear-gradient(to bottom,rgb(0 0 0 / 50%) 0,rgb(0 0 0 / 30%) 100%) !important;
+}
 
+//Welcome
+.welcome{
+  width: 100%;
+  height: 100vh;
+  margin-top: -110px;
+  img{
+    width: 100%;
+    height: 100vh;
+  }
+}
 // Modal Box Login dan daftar
+.navbar-default.scrolled{
+  background:#000;
+}
+
+
 .modal-content{
   background-color: #ecf0f3!important;
 }
@@ -42,10 +64,6 @@ body {
 
 
 // Slider
-.slider {
-    margin-top: -110px;
-}
-
 .carousel-item {
     width: 100%;
     height: 100vh;
@@ -74,7 +92,7 @@ body {
   background-image: url('/image/arrow-right.png')!important;
 }
 .carousel-caption {
-  bottom: 16.25rem!important;
+  bottom: 12.25rem!important;
   left: 10%!important;
   right: 10%!important;
 }
@@ -102,13 +120,18 @@ body {
 
 //Footer
 .footer{
+  margin-top: 10em;
   padding-top: 5em;
   padding-bottom: 2em;
   background-color: #1E1E1E;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
   i{
     font-size: 25px;
   }
 }
+
+
 
 
 //GLOBAL
@@ -140,3 +163,13 @@ input{
   margin-bottom: 20px;
 }
 
+.caption{
+    position: absolute;
+    right: 15%;
+    bottom: 27.25rem;
+    left: 15%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    text-align: center;
+}
