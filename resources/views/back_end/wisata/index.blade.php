@@ -6,7 +6,7 @@
 
       <div class="row my-3">
         <div class="col-md-3">
-        <a href="wisata/create" class="btn btn-primary">Tambah Wisata</a>
+        <a href="/dinas/wisata/create" class="btn btn-primary">Tambah Wisata</a>
         </div>
       </div>
 
@@ -18,9 +18,9 @@
               <div class="card-body">
                 <h5 class="card-title">{{ $wisata->nama_wisata }}</h5>
                 <p class="card-text">{{ $wisata->deskripsi }}</p>
-                <a href="/wisata/{{ $wisata->id }}" class="btn btn-primary">Detail</a>
-                <a href="/wisata/{{ $wisata->id }}/edit" class="btn btn-success">Update</a>
-                <form action="/wisata/{{ $wisata->id }}" class="d-inline">
+                <a href="/dinas/wisata/{{ $wisata->id }}" class="btn btn-primary">Detail</a>
+                <a href="/dinas/wisata/{{ $wisata->id }}/edit" class="btn btn-success">Update</a>
+                <form action="/dinas/wisata/{{ $wisata->id }}" class="d-inline">
                   @method('delete')
                   @csrf
                   <button type="submit" class="btn btn-danger">Hapus</button>
