@@ -25,7 +25,7 @@
 
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light navbar-default" style="background-color: #546E7A;">
-        <div class="container ">
+        {{-- <div class="container ">
             <a class="navbar-brand" href="#">
                 <img src="/image/logo_sipaku.png" alt="" width="150">
             </a>
@@ -57,7 +57,8 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> --}}
+      @include('layouts.navbar')
     </nav>
 
     <!-- TENTANG -->
@@ -97,7 +98,7 @@
         </div>
 
         <!-- Modal Box Login -->
-        <div class="modal fade" id="login" tabindex="-1" aria-labelledby="login" aria-hidden="true">
+        {{-- <div class="modal fade" id="login" tabindex="-1" aria-labelledby="login" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered ">
                 <div class="modal-content d-flex p-4">
                     <div class="modal-header mb-4">
@@ -129,10 +130,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
+        @include('layouts.login')
 
         <!-- Modal Box Daftar -->
-        <div class="modal fade" id="daftar" tabindex="-1" aria-labelledby="daftar" aria-hidden="true">
+        {{-- <div class="modal fade" id="daftar" tabindex="-1" aria-labelledby="daftar" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered ">
                 <div class="modal-content d-flex p-4">
                     <div class="modal-header mb-4">
@@ -173,7 +175,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
+        @include('layouts.registrasi')
     </section>
 
     <!-- VISI MISI -->

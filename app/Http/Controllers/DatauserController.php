@@ -73,9 +73,25 @@ class DatauserController extends Controller
      * @param  \App\Models\user  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, user $user)
+    public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            'username' => 'required',
+            'name' => 'required',
+            'no_telp' => 'required',
+            'email' => 'required|email'
+        ];
+
+        $validatedData =  $request->validate($rules);
+
+        $validatedData['password'] = $request->password_old;
+        if ($request->password) {
+            $validatedData['password'] = bcrypt($request->password);
+        }
+
+        User::where('id', $id)->update($validatedData);
+
+        return redirect('/data-user')->with('success', 'Data Berhasil di update');
     }
 
     /**
@@ -84,8 +100,10 @@ class DatauserController extends Controller
      * @param  \App\Models\user  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(user $user)
+    public function destroy($id)
     {
-        //
+        user::destroy($id);
+
+        return redirect('/data-user')->with('success', 'Data berhasil di hapus');
     }
 }

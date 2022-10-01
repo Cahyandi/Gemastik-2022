@@ -6,7 +6,7 @@
       {{-- {{ ddd($petugas) }} --}}
       <div class="row mt-4">
         <div class="col-md-8">
-          <form action="/data-petugas/{{ $petugas->id }}" method="post">
+          <form action="/data-petugas/{{ $petugas->id }}" method="post"  class="bg-secondary bg-opacity-10 p-4 rounded">
             @method('put')
             @csrf
             <input type="hidden" name="id" value="{{ $petugas->id }}">

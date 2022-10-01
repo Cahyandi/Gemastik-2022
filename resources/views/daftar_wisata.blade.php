@@ -24,7 +24,7 @@
 </head>
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light navbar-default" style=" background: linear-gradient(to bottom,rgb(0 0 0 / 50%) 0,rgb(0 0 0 / 30%) 100%) !important;">
-        <div class="container ">
+        {{-- <div class="container ">
             <a class="navbar-brand" href="#">
                 <img src="/image/logo_sipaku.png" alt="" width="150">
             </a>
@@ -57,8 +57,13 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> --}}
+      @include('layouts.navbar')
     </nav>
+
+    @include('layouts.login')
+    
+    @include('layouts.registrasi')
 
     <section class="content-1" style="margin-top: -110px;">
             <img src="./image/waduk_darma.jpg" alt="" style="width: 100%; height: 400px; object-fit: cover;">

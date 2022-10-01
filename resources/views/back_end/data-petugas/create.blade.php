@@ -6,7 +6,7 @@
 
       <div class="row mt-4">
         <div class="col-md-8">
-          <form action="/data-petugas" method="post">
+          <form action="/data-petugas" method="post" class="bg-secondary bg-opacity-10 p-4">
             @csrf
             <div class="row g-3 mb-3">
               <div class="col-md">

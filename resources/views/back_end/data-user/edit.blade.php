@@ -51,6 +51,17 @@
                 </div>
               </div>
             </div>
+            <div class="row g-3 mb-3">
+              <div class="col-md">
+                <div class="form-group">
+                  <label for="name" class="form-label">name :</label>
+                  <input type="text" class="form-control" name="name" id="name" value="{{ $user->name }}">
+                  @error('name')
+                      {{ $message }}
+                  @enderror
+                </div>
+              </div>
+            </div>
             <button type="submit" class="btn btn-primary">Edit</button>
           </form>
         </div>

@@ -4,7 +4,7 @@
     <h2 class="my-4">Data User</h2>
 
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-10 border rounded">
             <table class="table table-striped">
                 <thead>
                     <tr>

@@ -5,9 +5,9 @@
       <h3>Create Wisata</h3>
 
       {{-- {{ auth('dinas')->user()->id }} --}}
-      <div class="row mt-3">
+      <div class="row mt-4">
         <div class="col-md-8">
-          <form action="/wisata" method="POST" enctype="multipart/form-data">
+          <form action="/wisata" method="POST" enctype="multipart/form-data" class="bg-secondary bg-opacity-10 my-3 p-4 rounded">
             @csrf
             <input type="hidden" name="id_dinas" value="{{ auth('dinas')->user()->id }}">
             <div class="row g-3 mb-3">
