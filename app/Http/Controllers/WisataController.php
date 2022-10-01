@@ -56,7 +56,7 @@ class WisataController extends Controller
 
         wisata::create($store);
 
-        return redirect('/wisata')->with('success', 'Pengaduan Berhasil Di ajukan');
+        return redirect('/dinas/wisata')->with('success', 'Pengaduan Berhasil Di ajukan');
     }
 
     /**
@@ -82,7 +82,7 @@ class WisataController extends Controller
     public function edit($id)
     {
         return view('back_end.wisata.edit', [
-            'title' => 'Wisata Update', 
+            'title' => 'Wisata Update',
             'wisata' => wisata::where('id', $id)->first()
         ]);
     }

@@ -1,6 +1,6 @@
 <div class="container">
   <a class="navbar-brand" href="/">
-    <img src="image/logo_sipaku.png" alt="" width="150" />
+    <img src="{{ asset('image/logo_sipaku.png') }}" alt="" width="150" />
   </a>
   <button
     class="navbar-toggler"
@@ -30,8 +30,8 @@
       <li class="nav-item">
         <a class="nav-link text-white" href="/#galeri">Gallery</a>
       </li>
+      @guest
       <li class="nav-item d-flex gap-3">
-        <!-- Button trigger modal -->
         <button
           type="button"
           class="btn btn-primary fw-bold"
@@ -45,8 +45,13 @@
           data-bs-toggle="modal"
           data-bs-target="#daftar">
           Daftar
-        </button>
+        </button>    
       </li>
+      @else
+      <li class="nav-item">
+        <a class="nav-link text-white btn btn-primary fw-bold" href="/logout">Logout</a>
+      </li>
+      @endguest
     </ul>
   </div>
 </div>
