@@ -313,14 +313,70 @@
       </div>
     </section>
 
-    <!-- INPIRASI WISATA -->
-    <ul>
-      @foreach ($wisatas as $wisata)
-        <li>
-          <a href="{{ route('show.wisata', $wisata->id) }}">{{ $wisata->nama_wisata }}</a>
-        </li>
-      @endforeach
-    </ul>
+    <!-- DAFTAR WISATA -->
+    <section class="daftar-wisata mb-5">
+      <div class="container">
+        <div class="d-flex flex-column">
+            <span class="title fw-bold">DAFTAR WISATA</span>
+            <label class="strip"></label>
+        </div>
+        <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3 clearfix">
+          @foreach ($wisatas as $index => $wisata)
+            @if ($index > 3)
+            <div class="col d-none wisatacard">
+              <div class="card">
+                <img src="/image/wisata_sawah_lope.jpg" class="card-img-top" alt="..." height="238px">
+                <div class="card-body">
+                  <h5 class="card-title">{{ $wisata->nama_wisata }}</h5>
+                  <small>
+                    <i class='bx bxs-map'></i>
+                    {{ $wisata->alamat }}
+                  </small>
+                  <p class="card-text mt-3" style="color: #929293;">
+                    {{Str::limit($wisata->deskripsi, 80)}}
+                  </p>
+                  <a href="{{ route('show.wisata', $wisata->id) }}" class="w-100 btn btn-warning text-white d-flex align-items-center justify-content-center">
+                    Let's go 
+                    <i class='bx bxs-chevron-right'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            @else
+            <div class="col">
+              <div class="card">
+                <img src="/image/wisata_sawah_lope.jpg" class="card-img-top" alt="..." height="238px">
+                <div class="card-body">
+                  <h5 class="card-title">{{ $wisata->nama_wisata }}</h5>
+                  <small>
+                    <i class='bx bxs-map'></i>
+                    {{ $wisata->alamat }}
+                  </small>
+                  <p class="card-text mt-3" style="color: #929293;">
+                    {{Str::limit($wisata->deskripsi, 80)}}
+                  </p>
+                  <a href="{{ route('show.wisata', $wisata->id) }}" class="w-100 btn btn-warning text-white d-flex align-items-center justify-content-center">
+                    Let's go 
+                    <i class='bx bxs-chevron-right'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            @endif
+          @endforeach
+        </div>   
+      </div>
+      <div class="d-flex justify-content-center pt-4">
+        <button onclick="showMoreWisata()" class="btnShowMore btn btn-primary">
+          Lebih banyak 
+          <i class='bx bxs-chevron-down'></i>
+        </button>
+        <button onclick="showMoreWisata()" class="btnHideMore d-none btn btn-primary">
+          Lebih sedikit 
+          <i class='bx bxs-chevron-up'></i>
+        </button>
+      </div>   
+    </section>
 
 
     <!-- INPIRASI WISATA -->
@@ -546,6 +602,17 @@
       $(window).scroll(function () {
         $("nav").toggleClass("srolled", $(this).scrollTop() > 100);
       });
+
+      function showMoreWisata(){
+        const wisataCards= document.querySelectorAll('.wisatacard');
+        const btnShowMore= document.querySelector('.btnShowMore');
+        const btnHideMore= document.querySelector('.btnHideMore');
+        wisataCards.forEach(wisataCard => {
+          wisataCard.classList.toggle('d-none');
+        });
+        btnShowMore.classList.toggle('d-none');
+        btnHideMore.classList.toggle('d-none');
+      }
     </script>
   </body>
 </html>
