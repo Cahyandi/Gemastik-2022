@@ -89,6 +89,8 @@
       @include('layouts.navbar')
     </nav>
 
+    @include('layouts.alert')
+
     <!-- Modal Box Login -->
     {{-- <div class="modal fade" id="login" tabindex="-1" aria-labelledby="login" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered ">
@@ -178,7 +180,7 @@
       </div>
     </div> --}}
     @include('layouts.registrasi')
-
+    
     <!-- WELCOME -->
     <section class="welcome" id="beranda">
       <img src="image/img_1.jpg" class="d-block w-100" alt="..." />
@@ -217,11 +219,17 @@
               <div class="carousel-caption-destinasi d-md-block">
                 <h3>Waduk Darma</h3>
                 <p>Waduk darma adalah salah satu destinasi wisata kuningan</p>
-                <a href="/daftar-wisata">
-                  <button type="button" class="btn btn-warning">
-                    Yuk Cari Tahu Wisata Ini !!!
-                  </button>
-                </a>
+                  @auth
+                    <a href="/daftar-wisata">
+                      <button type="button" class="btn btn-warning">
+                        Yuk Cari Tahu Wisata Ini !!!
+                      </button>
+                    </a>
+                  @else
+                    <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#login">
+                        Login
+                    </button>
+                  @endauth
               </div>
             </div>
             <div class="carousel-item" style="height: 450px">
@@ -231,11 +239,17 @@
                 <p>
                   Some representative placeholder content for the second slide.
                 </p>
-                <a href="/daftar-wisata">
-                  <button type="button" class="btn btn-warning">
-                    Yuk Cari Tahu Wisata Ini !!!
+                  @auth
+                    <a href="/daftar-wisata">
+                      <button type="button" class="btn btn-warning">
+                      Yuk Cari Tahu Wisata Ini !!!
+                    </button>
+                  </a>
+                  @else
+                  <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#login">
+                      Login untuk melihat
                   </button>
-                </a>
+                  @endauth
               </div>
             </div>
             <div class="carousel-item" style="height: 450px">
@@ -245,11 +259,17 @@
                 <p>
                   Some representative placeholder content for the third slide.
                 </p>
-                <a href="/daftar-wisata">
-                  <button type="button" class="btn btn-warning">
-                    Yuk Cari Tahu Wisata Ini !!!
+                  @auth
+                    <a href="/daftar-wisata">
+                      <button type="button" class="btn btn-warning">
+                        Yuk Cari Tahu Wisata Ini !!!
+                      </button>
+                    </a>
+                  @else
+                  <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#login">
+                      Login untuk melihat
                   </button>
-                </a>
+                  @endauth
               </div>
             </div>
             <div class="carousel-item" style="height: 450px">
@@ -259,11 +279,17 @@
                 <p>
                   Some representative placeholder content for the third slide.
                 </p>
-                <a href="./daftar_wisata.html">
-                  <button type="button" class="btn btn-warning">
-                    Yuk Cari Tahu Wisata Ini !!!
+                  @auth
+                    <a href="./daftar_wisata.html">
+                      <button type="button" class="btn btn-warning">
+                        Yuk Cari Tahu Wisata Ini !!!
+                      </button>
+                    </a>
+                  @else
+                  <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#login">
+                      Login untuk melihat
                   </button>
-                </a>
+                  @endauth
               </div>
             </div>
           </div>
@@ -286,6 +312,72 @@
         </div>
       </div>
     </section>
+
+    <!-- DAFTAR WISATA -->
+    <section class="daftar-wisata mb-5">
+      <div class="container">
+        <div class="d-flex flex-column">
+            <span class="title fw-bold">DAFTAR WISATA</span>
+            <label class="strip"></label>
+        </div>
+        <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3 clearfix">
+          @foreach ($wisatas as $index => $wisata)
+            @if ($index > 3)
+            <div class="col d-none wisatacard">
+              <div class="card">
+                <img src="/image/wisata_sawah_lope.jpg" class="card-img-top" alt="..." height="238px">
+                <div class="card-body">
+                  <h5 class="card-title">{{ $wisata->nama_wisata }}</h5>
+                  <small>
+                    <i class='bx bxs-map'></i>
+                    {{ $wisata->alamat }}
+                  </small>
+                  <p class="card-text mt-3" style="color: #929293;">
+                    {{Str::limit($wisata->deskripsi, 80)}}
+                  </p>
+                  <a href="{{ route('show.wisata', $wisata->id) }}" class="w-100 btn btn-warning text-white d-flex align-items-center justify-content-center">
+                    Let's go 
+                    <i class='bx bxs-chevron-right'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            @else
+            <div class="col">
+              <div class="card">
+                <img src="/image/wisata_sawah_lope.jpg" class="card-img-top" alt="..." height="238px">
+                <div class="card-body">
+                  <h5 class="card-title">{{ $wisata->nama_wisata }}</h5>
+                  <small>
+                    <i class='bx bxs-map'></i>
+                    {{ $wisata->alamat }}
+                  </small>
+                  <p class="card-text mt-3" style="color: #929293;">
+                    {{Str::limit($wisata->deskripsi, 80)}}
+                  </p>
+                  <a href="{{ route('show.wisata', $wisata->id) }}" class="w-100 btn btn-warning text-white d-flex align-items-center justify-content-center">
+                    Let's go 
+                    <i class='bx bxs-chevron-right'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            @endif
+          @endforeach
+        </div>   
+      </div>
+      <div class="d-flex justify-content-center pt-4">
+        <button onclick="showMoreWisata()" class="btnShowMore btn btn-primary">
+          Lebih banyak 
+          <i class='bx bxs-chevron-down'></i>
+        </button>
+        <button onclick="showMoreWisata()" class="btnHideMore d-none btn btn-primary">
+          Lebih sedikit 
+          <i class='bx bxs-chevron-up'></i>
+        </button>
+      </div>   
+    </section>
+
 
     <!-- INPIRASI WISATA -->
     <section class="inspirasi-wisata" id="galeri">
@@ -510,6 +602,17 @@
       $(window).scroll(function () {
         $("nav").toggleClass("srolled", $(this).scrollTop() > 100);
       });
+
+      function showMoreWisata(){
+        const wisataCards= document.querySelectorAll('.wisatacard');
+        const btnShowMore= document.querySelector('.btnShowMore');
+        const btnHideMore= document.querySelector('.btnHideMore');
+        wisataCards.forEach(wisataCard => {
+          wisataCard.classList.toggle('d-none');
+        });
+        btnShowMore.classList.toggle('d-none');
+        btnHideMore.classList.toggle('d-none');
+      }
     </script>
   </body>
 </html>

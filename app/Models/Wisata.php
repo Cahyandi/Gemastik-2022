@@ -15,4 +15,9 @@ class Wisata extends Model
     {
         return $this->belongsTo(Dinas::class, 'id_dinas');
     }
+
+    public function Ulasan()
+    {
+        return $this->hasMany(Ulasan::class);
+    }
 }

@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthUserController extends Controller
 {
-    public function index () {
+    public function index()
+    {
         return view('login');
     }
 

@@ -3,18 +3,16 @@
 @section('section')
     <div class="mt-4">
       <h3>Create Wisata</h3>
-
-      {{-- {{ auth('dinas')->user()->id }} --}}
       <div class="row mt-4">
         <div class="col-md-8">
-          <form action="/wisata" method="POST" enctype="multipart/form-data" class="bg-secondary bg-opacity-10 my-3 p-4 rounded">
+          <form action="/dinas/wisata" method="POST" enctype="multipart/form-data" class="bg-secondary bg-opacity-10 my-3 p-4 rounded">
             @csrf
             <input type="hidden" name="id_dinas" value="{{ auth('dinas')->user()->id }}">
             <div class="row g-3 mb-3">
               <div class="col-md">
                 <div class="form-group">
                   <label for="nama_wisata" class="form-label">Nama Wisata :</label>
-                  <input type="text" class="form-control" name="nama_wisata" id="nama_wisata">
+                  <input type="text" class="form-control" name="nama_wisata" id="nama_wisata" value="{{ old('nama_wisata') }}">
                   @error('nama_wisata')
                       {{ $message }}
                   @enderror
@@ -32,21 +30,21 @@
             </div>
             <div class="form-group mb-3">
               <label for="alamat" class="form-label">Alamat</label>
-                <input type="text" class="form-control" id="alamat" name="alamat">
+                <input type="text" class="form-control" id="alamat" name="alamat" value="{{ old('alamat') }}">
                 @error('alamat')
-                      {{ $message }}
+                  {{ $message }}
                 @enderror
             </div>
             <div class="form-group mb-3">
               <label for="tiket" class="form-label">Harga Ticket</label> 
-              <input type="number" class="form-control" id="tiket" name="harga_tiket">
+              <input type="number" class="form-control" id="tiket" name="harga_tiket" value="{{ old('harga_tiket') }}">
               @error('harga_tiket')
-                  {{ $message }}
+                {{ $message }}
               @enderror
             </div>
             <div class="form-group mb-3">
               <label for="deskripsi" class="form-label">Deskripsi</label> 
-              <input type="text" class="form-control" id="deskripsi" name="deskripsi">
+              <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ old('deskripsi') }}">
               @error('deskripsi')
                   {{ $message }}
               @enderror
@@ -59,13 +57,19 @@
               <div class="col-md">
                 <div class="form-group">
                   <label for="latitude" class="form-label">Latitude :</label>
-                  <input type="text" class="form-control" name="latitude" id="latitude">
+                  <input type="text" class="form-control" name="latitude" id="latitude" value="{{ old('latitude') }}">
+                  @error('latitude')
+                      {{ $message }}
+                  @enderror
                 </div>
               </div>
               <div class="col-md">
                 <div class="form-group">
                   <label for="longitude" class="form-label">Longitude :</label>
-                  <input type="text" class="form-control" id="longitude" name="longitude">
+                  <input type="text" class="form-control" id="longitude" name="longitude" value="{{ old('longitude') }}">
+                  @error('longitude')
+                      {{ $message }}
+                  @enderror
                 </div>
               </div>
             </div>
