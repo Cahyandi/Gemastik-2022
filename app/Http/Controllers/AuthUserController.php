@@ -27,14 +27,14 @@ class AuthUserController extends Controller
             $request->session()->regenerate();
             $request->session()->regenerateToken();
             return redirect()->intended('/');
-        } else if(Auth::guard('dinas')->attempt($validateData)) {
+        } else if (Auth::guard('dinas')->attempt($validateData)) {
             $login = Dinas::where('username', $validateData['username'])->first();
             auth()->login($login);
             $request->session()->regenerate();
             $request->session()->regenerateToken();
             return redirect()->intended('/dashboard');
         } else {
-            return back()->with('loginError', 'Incorrect your username or password');
+            return back()->withErrors(['loginError' => 'Incorrect your username or password']);
         }
     }
 
