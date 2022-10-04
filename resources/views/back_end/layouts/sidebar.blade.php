@@ -23,7 +23,7 @@
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('wisata*') ? 'active' : '' }}" href="/wisata">
+            <a class="nav-link {{ Request::is('dinas/wisata*') ? 'active' : '' }}" href="dinas/wisata">
               <span data-feather="file-text" class="align-text-bottom"></span>
               Wisata
             </a>
@@ -53,6 +53,12 @@
             <a class="nav-link" href="/ticket">
               <span data-feather="file-text" class="align-text-bottom"></span>
               Pemesanan
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/riwayat-ticket/{{ auth()->user()->username }}">
+              <span data-feather="file-text" class="align-text-bottom"></span>
+              Riwayat Ticket
             </a>
           </li>
         </ul>

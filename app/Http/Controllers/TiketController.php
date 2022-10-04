@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
+use App\Models\User;
 use App\Models\Wisata;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class TiketController extends Controller
@@ -28,12 +30,12 @@ class TiketController extends Controller
      */
     public function create($id)
     {
-        $cek = Ticket::where('id_wisata', $id)->first();
+        $cek = Ticket::latest()->where('id_wisata', $id)->get();
         if ($cek) {
             return view('back_end.pesanan.form', [
             'title' => 'Form Tiket',
             'wisata' => Wisata::where('id', $id)->first(),
-            'tiket' => $cek->no_ticket
+            'tiket' => $cek[0]->no_ticket
             ]);
         } else {
             $tiket = '0001';
@@ -54,7 +56,18 @@ class TiketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'id_user' => 'required',
+            'id_wisata' => 'required',
+            'nama_pemesan' => 'required',
+            'jumlah_tiket' => 'required',
+            'total_harga' => 'required',
+            'no_ticket' => 'required',
+        ];
+        $validatedData = $request->validate($rules);
+        $validatedData['status'] = 'belum';
+        Ticket::create($validatedData);
+        return redirect('/ticket')->with('success', 'Pengaduan Berhasil Di ajukan');
     }
 
     /**
@@ -86,9 +99,20 @@ class TiketController extends Controller
      * @param  \App\Models\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ticket $ticket)
+    public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            'bukti_pembayaran' => 'required|image',
+            'status' => 'required',
+        ];
+        $username = auth()->user()->username;
+        $validatedData = $request->validate($rules);
+
+        // ddd($validatedData);
+
+        $validatedData['bukti_pembayaran'] = $request->file('bukti_pembayaran')->store('validasi_tickets');
+        Ticket::where('id', $id)->update($validatedData);
+        return redirect("/riwayat-ticket/$username")->with('success', 'Post Has Been Updated');
     }
 
     /**
@@ -100,5 +124,22 @@ class TiketController extends Controller
     public function destroy(Ticket $ticket)
     {
         //
+    }
+
+    public function riwayat_tiket(User $user)
+    {
+        return view('back_end.riwayat-tiket.index', [
+            'title' => 'Riwayat Tiket',
+            'user' => $user,
+            'tikets' => Ticket::with(['user', 'wisata'])->where('id_user', $user->id)->get()
+        ]);
+    }
+
+    public function validasi_pembayaran(Ticket $ticket)
+    {
+        return view('back_end.riwayat-tiket.validate', [
+            'title' => 'Validasi Pembayaran',
+            'ticket' => $ticket
+        ]);
     }
 }
