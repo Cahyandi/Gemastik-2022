@@ -55,7 +55,7 @@ class AuthUserController extends Controller
             auth()->login($login);
             $request->session()->regenerate();
             $request->session()->regenerateToken();
-            return redirect('/gemastik');
+            return redirect('/');
         } else {
             return back()->with('Failled Register', 'Ada Kesalahan saat Registrasi');
         }

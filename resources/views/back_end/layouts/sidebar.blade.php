@@ -30,13 +30,13 @@
           </li>
           <li class="nav-item">
             <a class="nav-link {{ Request::is('data-petugas*') ? 'active' : '' }}" href="/data-petugas">
-              <span data-feather="file-text" class="align-text-bottom"></span>
+              <span data-feather="user-plus" class="align-text-bottom"></span>
               Data Petugas
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{ Request::is('data-user*') ? 'active' : '' }}" href="/data-user">
-              <span data-feather="file-text" class="align-text-bottom"></span>
+              <span data-feather="users" class="align-text-bottom"></span>
               Data User
             </a>
           </li>
@@ -51,14 +51,14 @@
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
             <a class="nav-link" href="/ticket">
-              <span data-feather="file-text" class="align-text-bottom"></span>
+            <i class="fa-solid fa-check-to-slot me-2"></i>
               Pemesanan
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/riwayat-ticket/{{ auth()->user()->username }}">
-              <span data-feather="file-text" class="align-text-bottom"></span>
-              Riwayat Ticket
+            <a class="nav-link" href="/riwayat-ticket/">
+              <i class="fa-solid fa-clock-rotate-left me-2"></i>
+              <span>Riwayat Ticket</span>
             </a>
           </li>
         </ul>
@@ -72,10 +72,16 @@
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <span data-feather="file-text" class="align-text-bottom"></span>
+            <i class="fa-sharp fa-solid fa-chart-simple me-2"></i>
               Laporan Pemasukan
             </a>
           </li>
         </ul>
+        
+        <h6 class="sidebar-heading d-flex justify-content-center align-items-center px-3 mb-1 text-muted text-uppercase" style="margin-top: 80px;">
+            <a class="nav-link px-3 d-flex flex-column  justify-content-center align-items-center" href="/logout">Sign out
+              <span data-feather="log-out" class="align-text-bottom"></span>
+            </a>
+        </h6>
       </div>
     </nav>

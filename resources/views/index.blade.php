@@ -511,7 +511,6 @@
           class="row content"
           style="
             background-image: url('image/wisata_2.jpg');
-            width: 100%;
             height: 250px;
             object-fit: cover;
             border-radius: 10px;
