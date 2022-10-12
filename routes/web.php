@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthUserController;
 use App\Http\Controllers\DatapetugasController;
 use App\Http\Controllers\DatauserController;
+use App\Http\Controllers\petugas\DataticketController;
 use App\Http\Controllers\TiketController;
 use App\Http\Controllers\User\WisataController as UserWisataController;
 use App\Http\Controllers\WisataController;
@@ -52,6 +53,11 @@ Route::get('/ticket/form/{id}', [TiketController::class, 'create']);
 Route::post('/ticket/pesan', [TiketController::class, 'store']);
 Route::get('/riwayat-ticket/{user:username}', [TiketController::class, 'riwayat_tiket']);
 Route::get('/riwayat-ticket/validate/{ticket:no_ticket}', [TiketController::class, 'validasi_pembayaran']);
+
+Route::get('/data-ticket/{dinas:username}', [DataticketController::class, 'index']);
+Route::get('/data-ticket/show/{ticket:no_ticket}', [DataticketController::class, 'show']);
+Route::get('/data-ticket/edit/{ticket:no_ticket}', [DataticketController::class, 'edit']);
+Route::post('/data-ticket/updateStatus/{ticket:id}', [DataticketController::class, 'update']);
 
 Route::get('/gemastik', function () {
     return view('Gemastik');

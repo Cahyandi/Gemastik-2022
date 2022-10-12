@@ -15,8 +15,8 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user');
-            $table->foreignId('id_wisata');
+            $table->foreignId('user_id');
+            $table->foreignId('wisata_id');
             $table->string('nama_pemesan');
             $table->integer('jumlah_tiket');
             $table->string('total_harga');

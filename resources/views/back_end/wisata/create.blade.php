@@ -7,7 +7,7 @@
         <div class="col-md-8">
           <form action="/dinas/wisata" method="POST" enctype="multipart/form-data" class="bg-secondary bg-opacity-10 my-3 p-4 rounded">
             @csrf
-            <input type="hidden" name="id_dinas" value="{{ auth('dinas')->user()->id }}">
+            <input type="hidden" name="dinas_id" value="{{ auth('dinas')->user()->id }}">
             <div class="row g-3 mb-3">
               <div class="col-md">
                 <div class="form-group">

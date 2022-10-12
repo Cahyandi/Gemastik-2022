@@ -30,8 +30,9 @@ class TiketController extends Controller
      */
     public function create($id)
     {
-        $cek = Ticket::latest()->where('id_wisata', $id)->get();
-        if ($cek) {
+        $cek = Ticket::latest()->where('wisata_id', $id)->get();
+        // ddd(count($cek));
+        if (count($cek)) {
             return view('back_end.pesanan.form', [
             'title' => 'Form Tiket',
             'wisata' => Wisata::where('id', $id)->first(),
@@ -57,8 +58,8 @@ class TiketController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'id_user' => 'required',
-            'id_wisata' => 'required',
+            'user_id' => 'required',
+            'wisata_id' => 'required',
             'nama_pemesan' => 'required',
             'jumlah_tiket' => 'required',
             'total_harga' => 'required',
@@ -131,7 +132,7 @@ class TiketController extends Controller
         return view('back_end.riwayat-tiket.index', [
             'title' => 'Riwayat Tiket',
             'user' => $user,
-            'tikets' => Ticket::with(['user', 'wisata'])->where('id_user', $user->id)->get()
+            'tikets' => Ticket::with(['user', 'wisata'])->where('user_id', $user->id)->get()
         ]);
     }
 

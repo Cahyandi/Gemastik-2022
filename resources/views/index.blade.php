@@ -325,7 +325,7 @@
             @if ($index > 3)
             <div class="col d-none wisatacard">
               <div class="card">
-                <img src="/image/wisata_sawah_lope.jpg" class="card-img-top" alt="..." height="238px">
+                <img src="/{{ asset('storage/'. $wisata->img_wisata) }}" class="card-img-top" alt="..." height="238px">
                 <div class="card-body">
                   <h5 class="card-title">{{ $wisata->nama_wisata }}</h5>
                   <small>
@@ -345,7 +345,7 @@
             @else
             <div class="col">
               <div class="card">
-                <img src="/image/wisata_sawah_lope.jpg" class="card-img-top" alt="..." height="238px">
+                <img src="{{ asset('storage/'. $wisata->img_wisata) }}" class="card-img-top" alt="..." height="238px">
                 <div class="card-body">
                   <h5 class="card-title">{{ $wisata->nama_wisata }}</h5>
                   <small>

@@ -7,7 +7,7 @@
       {{-- {{ auth('dinas')->user()->id }} --}}
       <div class="row mt-3">
         <div class="col-md-8">
-          <form action="/wisata/{{ $wisata->id }}" method="POST" enctype="multipart/form-data">
+          <form action="/dinas/wisata/{{ $wisata->id }}" method="POST" enctype="multipart/form-data">
             @method('put')
             @csrf
             <input type="hidden" name="id_dinas" value="{{ auth('dinas')->user()->id }}">
@@ -72,7 +72,8 @@
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary mt-3">Update</button>
+            <a href="/dinas/wisata" class="btn btn-primary my-3">Back</a>
+            <button type="submit" class="btn btn-primary my-3">Update</button>
           </form>
         </div>
       </div>

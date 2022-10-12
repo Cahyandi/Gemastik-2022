@@ -2,15 +2,15 @@
 
 @section('section')
 <div class="mt-4">
-  <h3>Create Wisata</h3>
+  <h3>Buy Ticket</h3>
 
   {{-- {{ auth('dinas')->user()->id }} --}}
   <div class="row mt-4">
     <div class="col-md-8">
       <form action="/ticket/pesan" method="POST" enctype="multipart/form-data" class="bg-secondary bg-opacity-10 my-3 p-4 rounded">
         @csrf
-        <input type="hidden" name="id_user" value="{{ auth()->user()->id }}">
-        <input type="hidden" name="id_wisata" value="{{ $wisata->id }}">
+        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+        <input type="hidden" name="wisata_id" value="{{ $wisata->id }}">
         <div class="row g-3 mb-3">
           <div class="col-md">
             <div class="form-group">

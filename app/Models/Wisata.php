@@ -13,11 +13,16 @@ class Wisata extends Model
 
     public function Dinas()
     {
-        return $this->belongsTo(Dinas::class, 'id_dinas');
+        return $this->belongsTo(Dinas::class, 'dinas_id');
     }
 
     public function Ulasan()
     {
         return $this->hasMany(Ulasan::class);
+    }
+
+    public function Ticket()
+    {
+        return $this->hasMany(Ticket::class);
     }
 }

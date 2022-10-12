@@ -21,7 +21,7 @@
         </thead>
         {{-- {{ ddd($tikets) }} --}}
         <tbody>
-          @foreach ($tikets as $tiket)
+          @foreach ($wisatas->ticket as $tiket)
             <tr>
               <td>{{ $loop->iteration }}</td>
               <?php 
@@ -46,7 +46,7 @@
               <td>{{ $tiket->wisata->nama_wisata }}</td>
               <td>{{ $tiket->status }}</td>
               <td colspan="2" class="text-center">
-                <a href="/riwayat-ticket/validate/{{ $tiket->no_ticket }}" class="btn btn-success">Validasi Pembayaran</a>
+                <a href="/data-ticket/show/{{ $tiket->no_ticket }}" class="btn btn-success">Detail</a>
                 <form action="/data-petugas" method="post" class="d-inline">
                   @method('delete')
                   @csrf
@@ -60,12 +60,4 @@
     </div>
   </div>
 </div>
-<script src="../node_modules\qrcode\build\qrcode.js"></script>
-<script>
-  let canvas = document.getElementById('canvas')
-  QRCode.toCanvas(canvas, 'success', (err) => {
-    if(err) console.error(err);
-    console.log("Berhasil");
-  })
-</script>
 @endsection
