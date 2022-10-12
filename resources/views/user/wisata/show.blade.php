@@ -23,7 +23,10 @@
                     <p>{{ $wisata->deskripsi }}</p>
                 </div>
                 <div class="col-6">
-                    <h1>GEOLOCATION</h1>
+                    {{-- <h1>GEOLOCATION</h1> --}}
+                    <div id="leafletMap-registration" style="height: 300px;width:100%;"></div>
+                    <input type="hidden" value="{{ $wisata->latitude }}" id="latitude">
+                    <input type="hidden" value="{{ $wisata->longitude }}" id="longitude">
                 </div>
                 <h3 class="pb-3 pt-3"><label style="color: #fe8903;">Harga: Rp.{{ number_format($wisata->harga_tiket,0,',','.') }} /</label> Orang</h3>
 
@@ -61,7 +64,7 @@
                     <div class="modal-body">
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" name="submit">Booking</button>
+                        <a href="/ticket/form/{{ $wisata->id }}" class="btn btn-primary" name="submit">Booking</a>
                     </div>
                 </div>
             </div>
@@ -215,5 +218,42 @@
             rating5.classList.toggle('bxs-star');
         }
     }
+    // you want to get it of the window global
+    const providerOSM = new GeoSearch.OpenStreetMapProvider();
+      const latitude = document.querySelector('#latitude').value;
+      const longitude = document.querySelector('#longitude').value;
+  
+      //leaflet map
+      var leafletMap = L.map('leafletMap-registration', {
+      fullscreenControl: true,
+      // OR
+      fullscreenControl: {
+          pseudoFullscreen: false // if true, fullscreen to page width and height
+      },
+      minZoom: 8
+      }).setView([latitude, longitude], 15);
+  
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(leafletMap);
+      
+      let theMarker = {};
+      theMarker = L.marker([latitude,longitude]).addTo(leafletMap);
+  
+      leafletMap.on('click',function(e) {
+          let latitude  = e.latlng.lat.toString().substring(0,15);
+          let longitude = e.latlng.lng.toString().substring(0,15);
+          // document.getElementById("latitude").value = latitude;
+          // document.getElementById("longitude").value = longitude;
+          let popup = L.popup()
+              .setLatLng([latitude,longitude])
+              .setContent("Kordinat : " + latitude +" - "+  longitude )
+              .openOn(leafletMap);
+  
+          if (theMarker != undefined) {
+              leafletMap.removeLayer(theMarker);
+          };
+          theMarker = L.marker([latitude,longitude]).addTo(leafletMap);  
+      });
 </script>
 @endsection

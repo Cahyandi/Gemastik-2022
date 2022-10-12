@@ -28,11 +28,13 @@
                   <td>{{ $petugas->email }}</td>
                   <td>{{ $petugas->no_telp }}</td>
                   <td colspan="2">
-                    <a href="/data-petugas/{{ $petugas->id }}/edit" class="btn btn-success">Edit</a>
+                    <a href="/data-petugas/{{ $petugas->id }}/edit" class="btn btn-success">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
                     <form action="/data-petugas/{{ $petugas->id }}" method="post" class="d-inline">
                       @method('delete')
                       @csrf
-                      <button type="submit" class="btn btn-danger">Delete</button>
+                      <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                     </form>
                   </td>
                 </tr>

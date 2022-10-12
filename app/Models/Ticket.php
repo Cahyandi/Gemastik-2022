@@ -12,11 +12,11 @@ class Ticket extends Model
 
     public function User()
     {
-        return $this->belongsTo(User::class, 'id_user');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function Wisata()
     {
-        return $this->belongsTo(Wisata::class, 'id_wisata');
+        return $this->belongsTo(Wisata::class, 'wisata_id');
     }
 }

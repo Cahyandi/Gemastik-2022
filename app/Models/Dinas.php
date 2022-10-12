@@ -15,5 +15,8 @@ class Dinas extends Authenticatable
     protected $table = 'dinas';
     protected $guard = 'dinas';
 
-    
+    public function Wisata()
+    {
+        return $this->hasMany(Wisata::class);
+    }
 }

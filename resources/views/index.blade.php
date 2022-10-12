@@ -226,9 +226,7 @@
                       </button>
                     </a>
                   @else
-                    <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#login">
-                        Login
-                    </button>
+                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#login">Yuk Cari Tahu Wisata Ini !!!</button>
                   @endauth
               </div>
             </div>
@@ -246,9 +244,7 @@
                     </button>
                   </a>
                   @else
-                  <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#login">
-                      Login untuk melihat
-                  </button>
+                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#login">Yuk Cari Tahu Wisata Ini !!!</button>
                   @endauth
               </div>
             </div>
@@ -266,9 +262,7 @@
                       </button>
                     </a>
                   @else
-                  <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#login">
-                      Login untuk melihat
-                  </button>
+                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#login">Yuk Cari Tahu Wisata Ini !!!</button>
                   @endauth
               </div>
             </div>
@@ -286,9 +280,7 @@
                       </button>
                     </a>
                   @else
-                  <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#login">
-                      Login untuk melihat
-                  </button>
+                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#login">Yuk Cari Tahu Wisata Ini !!!</button>
                   @endauth
               </div>
             </div>
@@ -325,7 +317,7 @@
             @if ($index > 3)
             <div class="col d-none wisatacard">
               <div class="card">
-                <img src="/image/wisata_sawah_lope.jpg" class="card-img-top" alt="..." height="238px">
+                <img src="/{{ asset('storage/'. $wisata->img_wisata) }}" class="card-img-top" alt="..." height="238px">
                 <div class="card-body">
                   <h5 class="card-title">{{ $wisata->nama_wisata }}</h5>
                   <small>
@@ -345,7 +337,7 @@
             @else
             <div class="col">
               <div class="card">
-                <img src="/image/wisata_sawah_lope.jpg" class="card-img-top" alt="..." height="238px">
+                <img src="{{ asset('storage/'. $wisata->img_wisata) }}" class="card-img-top" alt="..." height="238px">
                 <div class="card-body">
                   <h5 class="card-title">{{ $wisata->nama_wisata }}</h5>
                   <small>

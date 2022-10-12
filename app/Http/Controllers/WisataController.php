@@ -17,6 +17,7 @@ class WisataController extends Controller
     {
         return view('back_end.wisata.index', [
             'wisatas' => Wisata::all(),
+            'petugasWisata' => Wisata::where('dinas_id', auth('dinas')->user()->id)->first(), 
             'title' => 'Daftar Wisata'
         ]);
     }
@@ -41,8 +42,9 @@ class WisataController extends Controller
      */
     public function store(Request $request)
     {
+        // ddd($request);
         $store = $request->validate([
-            'id_dinas' => 'required',
+            'dinas_id' => 'required',
             'nama_wisata' => 'required',
             'img_wisata' => 'required|image|file|max:2048',
             'alamat' => 'required',
@@ -97,7 +99,7 @@ class WisataController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'id_dinas' => 'required',
+            'dinas_id' => 'required',
             'nama_wisata' => 'required',
             'alamat' => 'required',
             'harga_tiket' => 'required',
@@ -115,7 +117,7 @@ class WisataController extends Controller
         }
 
         wisata::where('id', $id)->update($validatedData);
-        return redirect('/wisata')->with('success', 'Post Has Been Updated');
+        return redirect('/dinas/wisata')->with('success', 'Post Has Been Updated');
     }
 
     /**

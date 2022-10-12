@@ -15,7 +15,7 @@ class CreateWisatasTable extends Migration
     {
         Schema::create('wisatas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_dinas');
+            $table->foreignId('dinas_id');
             $table->string('nama_wisata');
             $table->string('img_wisata');
             // $table->string('galeri_satu');

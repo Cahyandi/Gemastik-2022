@@ -18,7 +18,7 @@
               <input type="hidden" value="{{ $wisata->longitude }}" id="longitude">
             </div>
           </div>
-          <a href="/wisata" class="btn btn-primary my-3">Back</a>
+          <a href="/dinas/wisata" class="btn btn-primary my-3">Back</a>
           {{-- <h4>{{ $wisata->nama_wisata }}</h4>
           <img src="{{ asset('storage/'. $wisata->img_wisata) }}" alt="">
             <h5>deskripsi  :</h5>

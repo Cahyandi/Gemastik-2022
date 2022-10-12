@@ -15,32 +15,62 @@
           </li>
         </ul>
 
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-          <span>Master Data</span>
-          <a class="link-secondary" href="#" aria-label="Add a new report">
-            <span data-feather="plus-circle" class="align-text-bottom"></span>
-          </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('dinas/wisata*') ? 'active' : '' }}" href="dinas/wisata">
-              <span data-feather="file-text" class="align-text-bottom"></span>
+        @if (auth('dinas')->check())
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+            <span>Master Data</span>
+            <a class="link-secondary" href="#" aria-label="Add a new report">
+              <span data-feather="plus-circle" class="align-text-bottom"></span>
+            </a>
+          </h6>
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('dinas/wisata*') ? 'active' : '' }}" href="/dinas/wisata">
+              <i class="fa-solid fa-location-dot me-2"></i>
               Wisata
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('data-petugas*') ? 'active' : '' }}" href="/data-petugas">
+              <i class="fa-solid fa-user-plus me-1"></i>
+                Data Petugas
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('data-user*') ? 'active' : '' }}" href="/data-user">
+              <i class="fa-solid fa-users me-1"></i>
+                Data User
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('data-ticket*') ? 'active' : '' }}" href="/data-ticket/{{ auth('dinas')->user()->username }}">
+              <i class="fa-solid fa-ticket me-1"></i>
+                Data Ticket Masuk
+              </a>
+            </li>
+          </ul>  
+        @else
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+            <span>Transaki</span>
+            <a class="link-secondary" href="#" aria-label="Add a new report">
+              <span data-feather="plus-circle" class="align-text-bottom"></span>
             </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('data-petugas*') ? 'active' : '' }}" href="/data-petugas">
-              <span data-feather="user-plus" class="align-text-bottom"></span>
-              Data Petugas
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('data-user*') ? 'active' : '' }}" href="/data-user">
-              <span data-feather="users" class="align-text-bottom"></span>
-              Data User
-            </a>
-          </li>
-        </ul>
+          </h6>
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link" href="/ticket">
+                <span data-feather="file-text" class="align-text-bottom"></span>
+                Pemesanan
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/riwayat-ticket/{{ auth()->user()->username }}">
+                <span data-feather="file-text" class="align-text-bottom"></span>
+                Riwayat Ticket
+              </a>
+            </li>
+          </ul>
+        @endif
+
 
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
           <span>Transaki</span>
