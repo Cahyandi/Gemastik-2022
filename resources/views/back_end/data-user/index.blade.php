@@ -4,7 +4,7 @@
     <h2 class="my-4">Data User</h2>
 
     <div class="row">
-        <div class="col-md-10 border rounded">
+        <div class="col-sm-10 border rounded">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -25,11 +25,13 @@
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->no_telp }}</td>
                             <td>
-                                <a href="/data-user/{{ $user->id }}/edit" class="btn btn-success">Edit</a>
+                                <a href="/data-user/{{ $user->id }}/edit" class="btn btn-success">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
                                 <form action="/data-user/{{ $user->id }}" class="d-inline">
                                     @method('delete')
                                     @csrf
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                 </form>
                             </td>
                         </tr>

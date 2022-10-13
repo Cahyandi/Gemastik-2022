@@ -81,8 +81,8 @@
                 <span class="fw-bold fs-4">DESKRIPSI WISATA</span>
                 <label class="strip"></label>
             </div>
-            <div class="row justify-content-evenly align-items-center ">
-                <div class="col-6" style="color: #939394;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, beatae nostrum
+            <div class="row g-2 justify-content-evenly align-items-center ">
+                <div class="col-md-4" style="color: #939394;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, beatae nostrum
                     pariatur aliquid itaque alias deserunt quaerat labore reiciendis praesentium, doloribus atque id
                     quas odit odio cupiditate corrupti numquam eum. Tempora eius nostrum molestiae excepturi laboriosam
                     accusamus ad optio consectetur vero, ab magni recusandae ea quia cupiditate nemo modi quos animi
@@ -93,7 +93,7 @@
                     optio consectetur vero, ab magni recusandae ea quia cupiditate nemo modi quos animi ipsum sed
                     voluptatem explicabo veritatis eos. Nulla, libero dolor.
                 </div>
-                <div class="col-6">
+                <div class="col-md-3">
                     <h1>GEOLOCATION</h1>
                 </div>
                 <h3 class="pb-3 pt-3"><label style="color: #fe8903;">Harga: Rp.0000 /</label> Orang</h3>

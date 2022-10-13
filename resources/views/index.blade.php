@@ -226,9 +226,7 @@
                       </button>
                     </a>
                   @else
-                    <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#login">
-                        Login
-                    </button>
+                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#login">Yuk Cari Tahu Wisata Ini !!!</button>
                   @endauth
               </div>
             </div>
@@ -246,9 +244,7 @@
                     </button>
                   </a>
                   @else
-                  <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#login">
-                      Login untuk melihat
-                  </button>
+                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#login">Yuk Cari Tahu Wisata Ini !!!</button>
                   @endauth
               </div>
             </div>
@@ -266,9 +262,7 @@
                       </button>
                     </a>
                   @else
-                  <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#login">
-                      Login untuk melihat
-                  </button>
+                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#login">Yuk Cari Tahu Wisata Ini !!!</button>
                   @endauth
               </div>
             </div>
@@ -286,9 +280,7 @@
                       </button>
                     </a>
                   @else
-                  <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#login">
-                      Login untuk melihat
-                  </button>
+                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#login">Yuk Cari Tahu Wisata Ini !!!</button>
                   @endauth
               </div>
             </div>
@@ -511,7 +503,6 @@
           class="row content"
           style="
             background-image: url('image/wisata_2.jpg');
-            width: 100%;
             height: 250px;
             object-fit: cover;
             border-radius: 10px;

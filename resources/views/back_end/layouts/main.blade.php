@@ -7,7 +7,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.101.0">
     <title>{{ $title }}</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/dashboard/">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -71,23 +71,22 @@
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
       }
+      .navbar-brand{
+        background-color: unset!important;
+        box-shadow:none!important;
+      }
     </style>  
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
   </head>
   <body>
     
-<header class="navbar sticky-top flex-md-nowrap p-0 shadow" style="background-color: #546E7A;">
+<header class="navbar sticky-top flex-md-nowrap p-0 " style="background-color: #F0FFF0; ">
   <a class="navbar-brand col-md-3 col-lg-2 me-4 px-3 text-center" href="#"><img src="/image/logo_sipaku.png" width="80"></a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   {{-- <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search"> --}}
-  <div class="navbar-nav">
-    <div class="nav-item text-nowrap">
-      <a class="nav-link px-3 text-white" href="/logout">Sign out</a>
-    </div>
-  </div>
 </header>
 
 <div class="container-fluid">
