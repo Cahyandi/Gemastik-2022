@@ -72,7 +72,7 @@
               </div>
             </div>
 
-            <a href="/dinas/wisata" class="btn btn-primary my-3">Back</a>
+            <a href="/dinas/wisata" class="btn btn-secondary my-3">Back</a>
             <button type="submit" class="btn btn-primary my-3">Update</button>
           </form>
         </div>

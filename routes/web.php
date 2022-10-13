@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthDinasController;
 use App\Http\Controllers\AuthUserController;
 use App\Http\Controllers\DatapetugasController;
 use App\Http\Controllers\DatauserController;
@@ -59,10 +60,11 @@ Route::get('/data-ticket/show/{ticket:no_ticket}', [DataticketController::class,
 Route::get('/data-ticket/edit/{ticket:no_ticket}', [DataticketController::class, 'edit']);
 Route::post('/data-ticket/updateStatus/{ticket:id}', [DataticketController::class, 'update']);
 
-Route::get('/gemastik', function () {
-    return view('Gemastik');
+Route::get('/login-dinas', function () {
+    return view('login_dinas');
 });
 
+Route::post('authenticate-dinas', [AuthDinasController::class, 'authenticate']);
 Route::post('authenticate', [AuthUserController::class, 'authenticate']);
 Route::post('register', [AuthUserController::class, 'registered']);
 Route::get('logout', [AuthUserController::class, 'logout']);
