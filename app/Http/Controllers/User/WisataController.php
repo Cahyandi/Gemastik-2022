@@ -28,6 +28,17 @@ class WisataController extends Controller
             'rating' => 'required'
         ]);
 
+        $totalUlasan = Ulasan::whereWisataId($wisata->id)->get();
+        $totalRating = 0;
+        foreach ($totalUlasan as $ulasan) {
+            $totalRating += $ulasan->rating;
+        }
+
+        $wisata->update([
+            'total_rating' => $totalRating
+        ]);
+
+
         Ulasan::create([
             'user_id' => auth()->user()->id,
             'wisata_id' => $wisata->id,

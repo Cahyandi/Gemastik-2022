@@ -313,7 +313,7 @@
             <label class="strip"></label>
         </div>
         <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3 clearfix">
-          @foreach ($wisatas as $index => $wisata)
+          @forelse ($wisatas as $index => $wisata)
             @if ($index > 3)
             <div class="col d-none wisatacard">
               <div class="card">
@@ -355,7 +355,9 @@
               </div>
             </div>
             @endif
-          @endforeach
+          @empty
+            <h4 class="text-center">Belum ada data pariwisata yang terdaftar</h4>
+          @endforelse
         </div>   
       </div>
       <div class="d-flex justify-content-center pt-4">
@@ -381,116 +383,19 @@
 
         <div class="inner container" style="background-color: #d9d9d930">
           <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 clearfix">
+            @foreach ($inspirations as $inspiration)
             <div class="col">
               <div
                 class="p-3 border bg-light"
                 style="width: 250px; height: 300px">
                 <img
-                  src="image/wisata_3.jpg"
+                  src="{{ asset('storage/'.$inspiration->img_wisata) }}"
                   alt=""
                   style="width: 220px; height: 270px" />
+                  {{ $inspiration->nama_wisata }}
               </div>
             </div>
-            <div class="col">
-              <div
-                class="p-3 border bg-light"
-                style="width: 250px; height: 300px">
-                <img
-                  src="image/wisata_3.jpg"
-                  alt=""
-                  style="width: 220px; height: 270px" />
-              </div>
-            </div>
-            <div class="col">
-              <div
-                class="p-3 border bg-light"
-                style="width: 250px; height: 300px">
-                <img
-                  src="image/wisata_3.jpg"
-                  alt=""
-                  style="width: 220px; height: 270px" />
-              </div>
-            </div>
-            <div class="col">
-              <div
-                class="p-3 border bg-light"
-                style="width: 250px; height: 300px">
-                <img
-                  src="image/wisata_3.jpg"
-                  alt=""
-                  style="width: 220px; height: 270px" />
-              </div>
-            </div>
-            <div class="col">
-              <div
-                class="p-3 border bg-light"
-                style="width: 250px; height: 300px">
-                <img
-                  src="image/wisata_3.jpg"
-                  alt=""
-                  style="width: 220px; height: 270px" />
-              </div>
-            </div>
-            <div class="col">
-              <div
-                class="p-3 border bg-light"
-                style="width: 250px; height: 300px">
-                <img
-                  src="image/wisata_3.jpg"
-                  alt=""
-                  style="width: 220px; height: 270px" />
-              </div>
-            </div>
-            <div class="col">
-              <div
-                class="p-3 border bg-light"
-                style="width: 250px; height: 300px">
-                <img
-                  src="image/wisata_3.jpg"
-                  alt=""
-                  style="width: 220px; height: 270px" />
-              </div>
-            </div>
-            <div class="col">
-              <div
-                class="p-3 border bg-light"
-                style="width: 250px; height: 300px">
-                <img
-                  src="image/wisata_3.jpg"
-                  alt=""
-                  style="width: 220px; height: 270px" />
-              </div>
-            </div>
-            <div class="col">
-              <div
-                class="p-3 border bg-light"
-                style="width: 250px; height: 300px">
-                <img
-                  src="image/wisata_3.jpg"
-                  alt=""
-                  style="width: 220px; height: 270px" />
-              </div>
-            </div>
-            <div class="col">
-              <div
-                class="p-3 border bg-light"
-                style="width: 250px; height: 300px">
-                <img
-                  src="image/wisata_3.jpg"
-                  alt=""
-                  style="width: 220px; height: 270px" />
-              </div>
-            </div>
-            <div class="col">
-              <div
-                class="p-3 border bg-light"
-                style="width: 250px; height: 300px">
-                <img
-                  src="image/wisata_3.jpg"
-                  alt=""
-                  style="width: 220px; height: 270px" />
-              </div>
-            </div>
+            @endforeach
           </div>
         </div>
       </div>

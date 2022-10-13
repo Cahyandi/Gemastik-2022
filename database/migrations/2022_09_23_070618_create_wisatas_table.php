@@ -24,6 +24,7 @@ class CreateWisatasTable extends Migration
             $table->text('alamat');
             $table->text('deskripsi');
             $table->string('harga_tiket');
+            $table->string('total_rating');
             $table->string('latitude');
             $table->string('longitude');
             $table->timestamps();

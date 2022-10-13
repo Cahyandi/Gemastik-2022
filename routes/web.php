@@ -8,6 +8,7 @@ use App\Http\Controllers\petugas\DataticketController;
 use App\Http\Controllers\TiketController;
 use App\Http\Controllers\User\WisataController as UserWisataController;
 use App\Http\Controllers\WisataController;
+use App\Models\Ulasan;
 use App\Models\Wisata;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +25,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index', [
-        'wisatas' => Wisata::all()
+        'wisatas' => Wisata::all(),
+        'inspirations' => Wisata::orderBy('total_rating', 'DESC')->take(5)->get()
     ]);
 });
 Route::get('/wisata/{wisata}', [UserWisataController::class, 'show'])->name('show.wisata');
