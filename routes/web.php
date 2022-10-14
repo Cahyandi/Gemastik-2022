@@ -65,8 +65,13 @@ Route::post('/data-ticket/updateStatus/{ticket:id}', [DataticketController::clas
 Route::get('/login-dinas', function () {
     return view('login_dinas');
 });
+Route::get('/registrasi-petugas', function () {
+    return view('registrasi_petugas');
+});
 
 Route::post('authenticate-dinas', [AuthDinasController::class, 'authenticate']);
+Route::post('register-petugas', [AuthDinasController::class, 'registerPetugas']);
+
 Route::post('authenticate', [AuthUserController::class, 'authenticate']);
 Route::post('register', [AuthUserController::class, 'registered']);
 Route::get('logout', [AuthUserController::class, 'logout']);

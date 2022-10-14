@@ -26,4 +26,23 @@ class AuthDinasController extends Controller
             return back()->withErrors(['loginError' => 'Incorrect your username or password']);
         }
     }
+
+    public function registerPetugas(Request $request)
+    {
+        $validatedData = $request->validate([
+            'username' => 'required|min:4|unique:dinas',
+            'email'    => 'required|email',
+            'no_telp'  => 'required|min:12',
+            'password' => 'required'
+        ]);
+
+        $validatedData['password'] = bcrypt($validatedData['password']);
+        $validatedData['role'] = 'petugas';
+        $petugas = Dinas::create($validatedData);
+        if ($petugas) {
+            return redirect('/login-dinas')->with('success', 'Registrasi berhasil, silahkan login');
+        } else {
+            return back()->with('Failled Register', 'Ada Kesalahan saat Registrasi');
+        }
+    }
 }
