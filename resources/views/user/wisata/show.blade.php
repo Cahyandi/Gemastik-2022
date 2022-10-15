@@ -3,8 +3,8 @@
 @section('content')
 <main>
     <section class="content-1" style="margin-top: -110px;">
-        <img src="{{ asset('/image/waduk_darma.jpg') }}" alt="" style="width: 100%; height: 400px; object-fit: cover;">
-        <div class="caption d-none d-md-block">
+        <img src="{{ asset('storage/'. $wisata->img_wisata) }}" alt="" style="width: 100%; height: 400px; object-fit: cover;">
+        <div class="caption  d-md-block">
             <div class="container d-flex align-items-center flex-column">
                 <h1>Wisata {{ $wisata->nama_wisata }}</h1>
                 <p>Lokasi Wisata Waduk Darma berada di {{ $wisata->alamat }}</p>
@@ -18,11 +18,11 @@
                 <span class="fw-bold fs-4">DESKRIPSI WISATA</span>
                 <label class="strip"></label>
             </div>
-            <div class="row justify-content-evenly align-items-center ">
-                <div class="col-6" style="color: #939394;">
+            <div class="row g-2 justify-content-between align-items-center ">
+                <div class="col-md-6" style="color: #939394;">
                     <p>{{ $wisata->deskripsi }}</p>
                 </div>
-                <div class="col-6">
+                <div class="col-md-5">
                     {{-- <h1>GEOLOCATION</h1> --}}
                     <div id="leafletMap-registration" style="height: 300px;width:100%;"></div>
                     <input type="hidden" value="{{ $wisata->latitude }}" id="latitude">
@@ -73,7 +73,7 @@
 
     <section class="container">
         <hr>
-        <div class="row">
+        <div class="row justify-content-between">
             <section class="col-md-6">
                 <h3 class="mb-5">Ulasan Orang Lain</h3>
                 @if ($ulasans->count())

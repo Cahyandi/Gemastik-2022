@@ -68,8 +68,8 @@
                 <span class="title fw-bold">TENTANG KAMI</span>
                 <label class="strip"></label>
             </div>
-            <div class="row justify-content-evenly align-items-center ">
-                <div class="col-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, beatae nostrum
+            <div class="row g-2 justify-content-evenly align-items-center ">
+                <div class="col-md-6 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, beatae nostrum
                     pariatur aliquid itaque alias deserunt quaerat labore reiciendis praesentium, doloribus atque id
                     quas odit odio cupiditate corrupti numquam eum. Tempora eius nostrum molestiae excepturi laboriosam
                     accusamus ad optio consectetur vero, ab magni recusandae ea quia cupiditate nemo modi quos animi
@@ -80,7 +80,7 @@
                     optio consectetur vero, ab magni recusandae ea quia cupiditate nemo modi quos animi ipsum sed
                     voluptatem explicabo veritatis eos. Nulla, libero dolor.
                 </div>
-                <div class="col-6">
+                <div class="col-md-3">
                     <img src="./image/logo_disporar.png" alt="" style="width: 100%;">
                 </div>
             </div>
@@ -90,7 +90,7 @@
     <!-- CONTENT -->
     <section class="content mb-5 pb-5 pt-5" style="background-color: #546E7A; width: 100%; height: 100%;">
         <div class="container d-flex align-items-center flex-column p-5">
-            <h1 class="text-white text-center" style="width: 40%;">BERWISATA DI <label style="color: #F7FA7C;">KABUPATEN
+            <h1 class="text-white text-center" style="width: 65%;">BERWISATA DI <label style="color: #F7FA7C;">KABUPATEN
                     KUNINGAN</label>? Let’s go</h1>
             <button type="button" class="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#login">Login
                 Sekarang!!!
@@ -182,15 +182,15 @@
     <!-- VISI MISI -->
     <section class="Visi-misi" style="margin-bottom: 10em;">
         <div class="container d-flex align-items-center justify-content-center flex-column">
-            <div class="d-flex flex-column m-5 align-items-center justify-content-center" style="width: 30%;">
+            <div class="d-flex flex-column m-5 align-items-center justify-content-center" >
                 <span class="title fw-bold">VISI DAN MISI DISPORAR KABUPATEN KUNINGAN</span>
                 <label class="strip"></label>
             </div>
-            <div class="row justify-content-evenly align-items-center ">
-                <div class="col-6">
+            <div class="row g-2 justify-content-evenly align-items-center ">
+                <div class="col-md-3 mb-5">
                     <img src="./image/logo_disporar.png" alt="" style="width: 100%;">
                 </div>
-                <div class="col-6 ps-5">
+                <div class="col-md-6 ps-5">
                     <div class="text mb-3">
                         <h3>Visi</h3>
                         <p>“Terwujudnya Insan Pemuda, Olahraga Dan Pariwisata Yang Unggul Serta Saing Tahun 2018”</p>

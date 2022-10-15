@@ -8,11 +8,47 @@ body {
   font-family: "Poppins", sans-serif;
   text-decoration: none;
 }
+.intro{
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  transition: 2s;
+}
+.logo-header{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.logo{
+  position: relative;
+  display: inline-block;
+  bottom: -20px;
+  font-size: 40px;
+  font-weight: bold;
+}
+.logo.active{
+  bottom: 0; 
+  opacity: 1;
+  transition: ease-in-out 0.5s;
+}
+.logo.fade{
+  bottom: 150px;
+  opacity: 0;
+  transition: ease-in-out 0.5s;
+}
+/* AND INTRO */
 
 .bgcolor.srolled {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.3) 100%) !important;
 }
-
+.navbar {
+  z-index: 1 !important;
+}
 .welcome {
   width: 100%;
   height: 100vh;
@@ -80,7 +116,7 @@ body {
 }
 
 .carousel-caption {
-  bottom: 12.25rem !important;
+  bottom: 10.25rem !important;
   left: 10% !important;
   right: 10% !important;
 }
@@ -148,7 +184,7 @@ input {
 .caption {
   position: absolute;
   right: 15%;
-  bottom: 27.25rem;
+  bottom: 21.25rem;
   left: 15%;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;

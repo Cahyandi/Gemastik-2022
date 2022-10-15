@@ -27,11 +27,22 @@
     <link
       rel="stylesheet"
       href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
-
-    <title>Navbar</title>
+      <link rel="shortcut icon" href="image/logo_sipaku.png" />
+    <title>Sipaku</title>
   </head>
 
   <body>
+    
+    <section class="intro">
+      <div class="logo-header d-flex flex-column justify-content-center align-items-center">
+          <img class="logo" src="image/intro.png" alt="" width="100px">
+          <div>
+              <span class="logo" style="color: #01136f;">SI</span>
+              <span class="logo" style="color: #04757d;">PA</span>
+              <span class="logo" style="color: #01136f;"">KU.</span>
+          </div>
+      </div>
+    </section>
     <nav
       class="navbar sticky-top navbar-expand-lg navbar-light navbar-default bgcolor">
       {{-- <div class="container">
@@ -183,15 +194,17 @@
     
     <!-- WELCOME -->
     <section class="welcome" id="beranda">
-      <img src="image/img_1.jpg" class="d-block w-100" alt="..." />
+      <img src="image/ciremai_1.jpg" class="d-block w-100" alt="..." />
       <div class="carousel-caption d-md-block">
         <div class="container d-flex align-items-center flex-column">
-          <label style="font-size: 2em">SELAMAT DATANG</label>
-          <label style="font-size: 3em; font-weight: 500"
+          <label style="font-size: 2em">SELAMAT DATANG DI</label>
+          <label style="font-size: 3em; font-weight: 700"
             >PARIWISATA KUNINGAN</label
           >
+          <p>Kabupaten Kuningan adalah sebuah kabupaten yang kaya akan wisatanya
+            yang mana wisata alam nya begitu indah dan menarik.</p>
           <a href="/about">
-            <button type="button" class="btn btn-info text-white">
+            <button type="button" class="btn btn-outline-light rounded-3">
               Baca Selengkapnya
               <i class="bx bxs-chevron-right"></i></button
           ></a>
@@ -306,7 +319,7 @@
     </section>
 
     <!-- DAFTAR WISATA -->
-    <section class="daftar-wisata mb-5">
+    <section class="daftar-wisata" style="margin-bottom: 10em;">
       <div class="container">
         <div class="d-flex flex-column">
             <span class="title fw-bold">DAFTAR WISATA</span>
@@ -315,7 +328,7 @@
         <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3 clearfix">
           @forelse ($wisatas as $index => $wisata)
             @if ($index > 3)
-            <div class="col d-none wisatacard">
+            <div class="col-md-3 d-none wisatacard">
               <div class="card">
                 <img src="/{{ asset('storage/'. $wisata->img_wisata) }}" class="card-img-top" alt="..." height="238px">
                 <div class="card-body">
@@ -335,7 +348,7 @@
               </div>
             </div>
             @else
-            <div class="col">
+            <div class="col col-md-3">
               <div class="card">
                 <img src="{{ asset('storage/'. $wisata->img_wisata) }}" class="card-img-top" alt="..." height="238px">
                 <div class="card-body">
@@ -493,6 +506,7 @@
     </section>
 
     <!-- JS -->
+    <script src="./js/splash.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
       $(window).scroll(function () {
