@@ -64,6 +64,7 @@ class TiketController extends Controller
             'jumlah_tiket' => 'required',
             'total_harga' => 'required',
             'no_ticket' => 'required',
+            'tgl_booking' => 'required'
         ];
         $validatedData = $request->validate($rules);
         $validatedData['status'] = 'belum';

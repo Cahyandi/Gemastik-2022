@@ -108,8 +108,17 @@ class WisataController extends Controller
             'longitude' => 'required'
         ];
 
-        $validatedData = $request->validate($rules);
+        $validatedData = $request->validate([
+            'dinas_id' => 'required',
+            'nama_wisata' => 'required',
+            'alamat' => 'required',
+            'harga_tiket' => 'required',
+            'deskripsi' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required'
+        ]);
         $validatedData['img_wisata'] = $request->old_image;
+        // ddd($request);
 
         if ($request->file('img_wisata')) {
             Storage::delete($request->old_image);
@@ -128,8 +137,9 @@ class WisataController extends Controller
      */
     public function destroy($id)
     {
-        $image = wisata::where('id', $id)->get();
-        wisata::destroy($image->id);
+        $image = wisata::where('id', $id)->first();
+        
+        wisata::destroy($id);
         Storage::delete($image->img_wisata);
 
         return redirect('/wisata')->with('success', 'Data Berhasil dihapus');

@@ -21,7 +21,8 @@ class AuthDinasController extends Controller
             auth()->login($login);
             $request->session()->regenerate();
             $request->session()->regenerateToken();
-            return redirect()->intended('/dashboard');
+            // return redirect()->intended('/dashboard');
+            return redirect('/dashboard');
         } else {
             return back()->withErrors(['loginError' => 'Incorrect your username or password']);
         }

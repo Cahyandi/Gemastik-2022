@@ -22,6 +22,7 @@ class CreateTicketsTable extends Migration
             $table->string('total_harga');
             $table->string('no_ticket');
             $table->string('bukti_pembayaran')->nullable();
+            $table->date('tgl_booking');
             $table->enum('status', ['belum', 'proses', 'selesai']);
             $table->timestamps();
         });

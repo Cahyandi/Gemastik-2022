@@ -12,8 +12,9 @@
             <th>No</th>
             <th>QR</th>
             <th>No Tiket</th>
-            <th>Username</th>
+            {{-- <th>Username</th> --}}
             <th>Nama Pemesan</th>
+            <th>TGL Booking</th>
             <th>Wisata</th>
             <th>Status</th>
             <th class="text-center">Aksi</th>
@@ -32,7 +33,7 @@
                 //   'Status' => $tiket->status
                 // ];
                 // $code = response()->json($qr, 200);
-                $code  = "NoTicket : $tiket->no_ticket \nNama : $tiket->nama_pemesan \nTempat Wisata  : ". $tiket->wisata->nama_wisata."\nStatus : $tiket->status";
+                $code  = "NoTicket : $tiket->no_ticket \nNama : $tiket->nama_pemesan \nTempat Wisata  : ". $tiket->wisata->nama_wisata."\nStatus : $tiket->status \nTglBooking  : $tiket->tgl_booking";
                ?> 
               <td>
                 {{ QrCode::size(100)->generate($code) }}
@@ -41,12 +42,13 @@
                 </div> --}}
               </td>
               <td>{{ $tiket->no_ticket }}</td>
-              <td>{{ $tiket->user->username }}</td>
+              {{-- <td>{{ $tiket->user->username }}</td> --}}
               <td>{{ $tiket->nama_pemesan }}</td>
+              <td>{{ $tiket->tgl_booking }}</td>
               <td>{{ $tiket->wisata->nama_wisata }}</td>
               <td>{{ $tiket->status }}</td>
               <td colspan="2" class="text-center">
-                <a href="/riwayat-ticket/validate/{{ $tiket->no_ticket }}" class="btn btn-success">Validasi Pembayaran</a>
+                <a href="/riwayat-ticket/validate/{{ $tiket->no_ticket }}" class="btn btn-success">Validasi</a>
                 <form action="/data-petugas" method="post" class="d-inline">
                   @method('delete')
                   @csrf

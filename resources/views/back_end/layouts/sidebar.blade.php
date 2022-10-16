@@ -76,13 +76,13 @@
           </h6>
           <ul class="nav flex-column mb-2">
             <li class="nav-item">
-              <a class="nav-link" href="/ticket">
+              <a class="nav-link {{ Request::is('ticket*') ? 'active' : '' }}" href="/ticket">
                 <i class="fa-solid fa-check-to-slot me-2"></i>
                 Pemesanan
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/riwayat-ticket/{{ auth()->user()->username }}">
+              <a class="nav-link {{ Request::is('riwayat-ticket*') ? 'active' : '' }}" href="/riwayat-ticket/{{ auth()->user()->username }}">
                 {{-- <span data-feather="file-text" class="align-text-bottom"></span> --}}
                 <i class="fa-solid fa-clock-rotate-left me-2"></i>
                 Riwayat Ticket

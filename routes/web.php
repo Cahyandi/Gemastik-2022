@@ -44,18 +44,18 @@ Route::get('/dashboard', function () {
     return view('back_end.dashboard.index', [
         'title' => 'Dashboard'
     ]);
-});
+})->middleware('auth:dinas,web');
 
-Route::resource('/data-user', DatauserController::class);
-Route::resource('/data-petugas', DatapetugasController::class);
-Route::resource('/dinas/wisata', WisataController::class);
+Route::resource('/data-user', DatauserController::class)->middleware('auth:dinas');
+Route::resource('/data-petugas', DatapetugasController::class)->middleware('auth:dinas');
+Route::resource('/dinas/wisata', WisataController::class)->middleware('auth:dinas');
 // Route::get('wisata/show/{id}', [WisataController::class, 'show']);
 
-Route::resource('/ticket', TiketController::class);
-Route::get('/ticket/form/{id}', [TiketController::class, 'create']);
-Route::post('/ticket/pesan', [TiketController::class, 'store']);
-Route::get('/riwayat-ticket/{user:username}', [TiketController::class, 'riwayat_tiket']);
-Route::get('/riwayat-ticket/validate/{ticket:no_ticket}', [TiketController::class, 'validasi_pembayaran']);
+Route::resource('/ticket', TiketController::class)->middleware('auth');
+Route::get('/ticket/form/{id}', [TiketController::class, 'create'])->middleware('auth');
+Route::post('/ticket/pesan', [TiketController::class, 'store'])->middleware('auth');
+Route::get('/riwayat-ticket/{user:username}', [TiketController::class, 'riwayat_tiket'])->middleware('auth');
+Route::get('/riwayat-ticket/validate/{ticket:no_ticket}', [TiketController::class, 'validasi_pembayaran'])->middleware('auth');
 
 Route::get('/data-ticket/{dinas:username}', [DataticketController::class, 'index']);
 Route::get('/data-ticket/show/{ticket:no_ticket}', [DataticketController::class, 'show']);

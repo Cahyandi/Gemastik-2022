@@ -5,7 +5,7 @@
   <h3>Buy Ticket</h3>
 
   {{-- {{ auth('dinas')->user()->id }} --}}
-  <div class="row mt-4">
+  <div class="row mt-2">
     <div class="col-md-8">
       <form action="/ticket/pesan" method="POST" enctype="multipart/form-data" class="bg-secondary bg-opacity-10 my-3 p-4 rounded">
         @csrf
@@ -93,6 +93,17 @@
               <input type="text" class="form-control" id="no_tiket" name="no_ticket" value="{{ $noTiket }}" readonly>
               @error('no_tiket')
                   {{ $message }}
+              @enderror
+            </div>
+          </div>
+        </div>
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="tgl_booking" class="form-label">Tanggal Booking</label> 
+              <input type="date" class="form-control" id="tgl_booking" name="tgl_booking" value="">
+              @error('tgl_booking')
+              {{ $message }}
               @enderror
             </div>
           </div>

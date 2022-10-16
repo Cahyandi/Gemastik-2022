@@ -62,7 +62,7 @@ class DatauserController extends Controller
     {
         return view('back_end.data-user.edit', [
             'title' => 'Edit User',
-            'petugas' => user::where('id', $id)->first()
+            'user' => user::where('id', $id)->first()
         ]);
     }
 

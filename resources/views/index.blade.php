@@ -432,16 +432,20 @@
               <h3 class="text-white">
                 Dapatkan Tiket Wisata dengan Membooking Tiket!!!
               </h3>
-              <a href="">
-                <button
-                  class="btn w-45 btn-block btn-primary"
-                  style="height: 40px"
-                  type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#modal-email-subscribe">
-                  Pesan Tiket Sekarang Juga!!!
-                </button>
-              </a>
+              @auth
+                <a href="#daftarWisata">
+                  <button
+                    class="btn w-45 btn-block btn-primary"
+                    style="height: 40px"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modal-email-subscribe">
+                    Pesan Tiket Sekarang Juga!!!
+                  </button>
+                </a>
+              @else
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login">Silahkan login terlebih dahulu untuk booking ticket</button>
+              @endauth
             </div>
           </div>
         </div>

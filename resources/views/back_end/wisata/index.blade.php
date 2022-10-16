@@ -28,10 +28,10 @@
                   <p class="card-text">{{ $petugasWisata->deskripsi }}</p>
                   <a href="/dinas/wisata/{{ $petugasWisata->id }}" class="btn btn-primary">Detail</a>
                   <a href="/dinas/wisata/{{ $petugasWisata->id }}/edit" class="btn btn-success">Update</a>
-                  <form action="/dinas/wisata/{{ $petugasWisata->id }}" class="d-inline">
+                  <form action="/dinas/wisata/{{ $petugasWisata->id }}" class="d-inline" method="post">
                     @method('delete')
                     @csrf
-                    <button type="submit" class="btn btn-danger">Hapus</button>
+                    <button type="submit" class="btn btn-danger" onclick="javascript: confirm('Yakin hapus data')">Hapus</button>
                   </form>
                 </div>
               </div>

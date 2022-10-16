@@ -7,10 +7,10 @@
       {{-- {{ auth('dinas')->user()->id }} --}}
       <div class="row mt-3">
         <div class="col-md-8">
-          <form action="/dinas/wisata/{{ $wisata->id }}" method="POST" enctype="multipart/form-data">
-            @method('put')
+          <form action="/dinas/wisata/{{ $wisata->id }}" method="post" enctype="multipart/form-data">
+            @method('patch')
             @csrf
-            <input type="hidden" name="id_dinas" value="{{ auth('dinas')->user()->id }}">
+            <input type="hidden" name="dinas_id" value="{{ auth('dinas')->user()->id }}">
             <input type="hidden" name="old_image" value="{{ $wisata->img_wisata }}">
             <div class="row g-3 mb-3">
               <div class="col-md">
@@ -55,7 +55,6 @@
             </div>
 
             <div id="leafletMap-registration" style="height: 300px"></div>
-
 
             <div class="row g-3 mb-3">
               <div class="col-md">
