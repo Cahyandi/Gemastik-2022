@@ -197,8 +197,8 @@
       <img src="image/ciremai_1.jpg" class="d-block w-100" alt="..." />
       <div class="carousel-caption d-md-block">
         <div class="container d-flex align-items-center flex-column">
-          <label style="font-size: 2em">SELAMAT DATANG DI</label>
-          <label style="font-size: 3em; font-weight: 700"
+          <label style="font-size: 2em; font-family: 'Nothing You Could Do', cursive;">SELAMAT DATANG DI</label>
+          <label style="font-size: 3em; font-weight: 700; font-family: 'Nothing You Could Do', cursive;"
             >PARIWISATA KUNINGAN</label
           >
           <p>Kabupaten Kuningan adalah sebuah kabupaten yang kaya akan wisatanya
@@ -214,12 +214,12 @@
 
     <!-- DAFTAR WISATA -->
     <section
-      class="daftar-wisata"
+      class="destinasi-wisata"
       id="daftarWisata"
-      style="width: 100%; height: 100vh">
+      style="width: 100%; ">
       <div class="container">
         <div class="d-flex flex-column">
-          <span class="title fw-bold">DESTINASI WISATA</span>
+          <span class="title fw-bold">DESTINASI WISATA PILIHAN</span>
           <label class="strip"></label>
         </div>
         <div
@@ -325,10 +325,10 @@
             <span class="title fw-bold">DAFTAR WISATA</span>
             <label class="strip"></label>
         </div>
-        <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3 clearfix">
+        <div class="row  clearfix">
           @forelse ($wisatas as $index => $wisata)
             @if ($index > 3)
-            <div class="col-md-3 d-none wisatacard">
+            <div class="col-md-3 p-3 d-none wisatacard">
               <div class="card">
                 <img src="/{{ asset('storage/'. $wisata->img_wisata) }}" class="card-img-top" alt="..." height="238px">
                 <div class="card-body">
@@ -348,7 +348,7 @@
               </div>
             </div>
             @else
-            <div class="col col-md-3">
+            <div class="col-md-3 p-3">
               <div class="card">
                 <img src="{{ asset('storage/'. $wisata->img_wisata) }}" class="card-img-top" alt="..." height="238px">
                 <div class="card-body">
@@ -395,17 +395,21 @@
         </div>
 
         <div class="inner container" style="background-color: #d9d9d930">
-          <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 clearfix">
+          <div class="row d-flex justify-content-center row-cols-2 row-cols-sm-4 row-cols-lg-5 g-3 g-lg-4 clearfix">
             @foreach ($inspirations as $inspiration)
-            <div class="col">
+            <div class="col ig-item">
               <div
-                class="p-3 border bg-light"
-                style="width: 250px; height: 300px">
+                class="p-1 bg-light"
+                style="width: 250px; height: 100%">
                 <img
                   src="{{ asset('storage/'.$inspiration->img_wisata) }}"
                   alt=""
-                  style="width: 220px; height: 270px" />
-                  {{ $inspiration->nama_wisata }}
+                  style="width: 100%; height: 270px; border-radius:5px;" />
+                  
+                <div class="content-card">
+                    <p class="d-flex align-items-center justify-content-center" >{{ $inspiration->nama_wisata }}</p> 
+                </div>
+                  
               </div>
             </div>
             @endforeach
