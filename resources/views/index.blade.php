@@ -227,76 +227,30 @@
           class="carousel slide"
           data-bs-ride="carousel">
           <div class="carousel-inner">
-            <div class="carousel-item active" style="height: 450px">
-              <img src="/image/wisata_1.jpg" class="d-block w-100" alt="..." />
-              <div class="carousel-caption-destinasi d-md-block">
-                <h3>Waduk Darma</h3>
-                <p>Waduk darma adalah salah satu destinasi wisata kuningan</p>
-                  @auth
-                    <a href="/daftar-wisata">
-                      <button type="button" class="btn btn-warning">
+            @foreach ($inspirations as $index => $inspiration)
+              <div 
+                class="
+                  carousel-item 
+                  @if ($index == 0)
+                  active
+                  @endif
+                " 
+                style="height: 450px"
+              >
+                <img src="{{ asset('storage/'.$inspiration->img_wisata) }}" class="d-block w-100" alt="..." />
+                <div class="carousel-caption-destinasi d-md-block">
+                  <h3>{{ $inspiration->nama_wisata }}</h3>
+                  <p>{{Str::limit($inspiration->deskripsi, 200)}}</p>
+                    @auth
+                      <a href="{{ route('show.wisata', $inspiration->id) }}" class="btn btn-warning">
                         Yuk Cari Tahu Wisata Ini !!!
-                      </button>
-                    </a>
-                  @else
-                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#login">Yuk Cari Tahu Wisata Ini !!!</button>
-                  @endauth
+                      </a>
+                    @else
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#login">Yuk Cari Tahu Wisata Ini !!!</button>
+                    @endauth
+                </div>
               </div>
-            </div>
-            <div class="carousel-item" style="height: 450px">
-              <img src="/image/wisata_2.jpg" class="d-block w-100" alt="..." />
-              <div class="carousel-caption-destinasi d-md-block">
-                <h3>Curug Putri</h3>
-                <p>
-                  Some representative placeholder content for the second slide.
-                </p>
-                  @auth
-                    <a href="/daftar-wisata">
-                      <button type="button" class="btn btn-warning">
-                      Yuk Cari Tahu Wisata Ini !!!
-                    </button>
-                  </a>
-                  @else
-                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#login">Yuk Cari Tahu Wisata Ini !!!</button>
-                  @endauth
-              </div>
-            </div>
-            <div class="carousel-item" style="height: 450px">
-              <img src="/image/wisata_3.jpg" class="d-block w-100" alt="..." />
-              <div class="carousel-caption-destinasi d-md-block">
-                <h3>Curug</h3>
-                <p>
-                  Some representative placeholder content for the third slide.
-                </p>
-                  @auth
-                    <a href="/daftar-wisata">
-                      <button type="button" class="btn btn-warning">
-                        Yuk Cari Tahu Wisata Ini !!!
-                      </button>
-                    </a>
-                  @else
-                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#login">Yuk Cari Tahu Wisata Ini !!!</button>
-                  @endauth
-              </div>
-            </div>
-            <div class="carousel-item" style="height: 450px">
-              <img src="/image/wisata_4.jpg" class="d-block w-100" alt="..." />
-              <div class="carousel-caption-destinasi d-md-block">
-                <h3>Panembongan</h3>
-                <p>
-                  Some representative placeholder content for the third slide.
-                </p>
-                  @auth
-                    <a href="./daftar_wisata.html">
-                      <button type="button" class="btn btn-warning">
-                        Yuk Cari Tahu Wisata Ini !!!
-                      </button>
-                    </a>
-                  @else
-                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#login">Yuk Cari Tahu Wisata Ini !!!</button>
-                  @endauth
-              </div>
-            </div>
+            @endforeach
           </div>
           <button
             class="carousel-control-prev"
@@ -393,23 +347,20 @@
           <span class="title fw-bold">INPIRASI WISATA</span>
           <label class="strip"></label>
         </div>
+        @auth
+        <a href="{{ route('posts.create') }}" class="btn btn-primary">Bikin Postingan</a>
+        @endauth
 
         <div class="inner container" style="background-color: #d9d9d930">
           <div class="row d-flex justify-content-center row-cols-2 row-cols-sm-4 row-cols-lg-5 g-3 g-lg-4 clearfix">
-            @foreach ($inspirations as $inspiration)
-            <div class="col ig-item">
-              <div
-                class="p-1 bg-light"
-                style="width: 250px; height: 100%">
-                <img
-                  src="{{ asset('storage/'.$inspiration->img_wisata) }}"
-                  alt=""
-                  style="width: 100%; height: 270px; border-radius:5px;" />
-                  
-                <div class="content-card">
-                    <p class="d-flex align-items-center justify-content-center" >{{ $inspiration->nama_wisata }}</p> 
-                </div>
-                  
+            @foreach ($posts as $post)
+            <div class="card" style="width: 18rem;">
+              <img src="{{ asset('storage/'.$post->img) }}" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">{{ $post->user->name }}</h5>
+                <small class="text-secondary">{{ $post->wisata->nama_wisata }}</small>
+                <p class="card-text">{{ Str::limit($post->caption, 100, '...') }}</p>
+                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">Lihat Postingan</a>
               </div>
             </div>
             @endforeach
