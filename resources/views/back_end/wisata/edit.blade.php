@@ -48,7 +48,8 @@
             </div>
             <div class="form-group mb-3">
               <label for="deskripsi" class="form-label">Deskripsi</label> 
-              <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ $wisata->deskripsi }}">
+              <textarea  cols="30" rows="10" class="form-control" id="deskripsi" name="deskripsi">{{$wisata->deskripsi}}</textarea>
+
               @error('deskripsi')
                   {{ $message }}
               @enderror

@@ -62,6 +62,9 @@
                         </div>
                     @enderror
                 </div>
+                <p style="font-size: 14px; color: #adb5bd;" class="d-flex flex-column justify-content-center align-items-center">Sudah Mempunyai Akun?
+                    <a href="/login-dinas" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#daftar" data-bs-dismiss="modal">Login Sekarang</a>
+                </p>
                 <button class="btn mt-3" name="submit">Register</button>
             </form>
         </div>

@@ -3,15 +3,22 @@
 @section('content')
 <main>
     <section class="content-1" style="margin-top: -110px;">
-        <img src="{{ asset('storage/'. $wisata->img_wisata) }}" alt="" style="width: 100%; height: 400px; object-fit: cover;">
+        <img src="{{ asset('storage/'. $wisata->img_wisata) }}" alt="" style="width: 100%; height: 600px; object-fit: cover;">
         <div class="caption  d-md-block">
             <div class="container d-flex align-items-center flex-column">
-                <h1>Wisata {{ $wisata->nama_wisata }}</h1>
-                <p>Lokasi Wisata Waduk Darma berada di {{ $wisata->alamat }}</p>
+                <label style="font-family:'Nothing You Could Do', cursive; font-weight: 700; font-size: 4em;">Wisata {{ $wisata->nama_wisata }}</label>
+                <p><i class='bx bxs-map me-2'></i>Lokasi Wisata Waduk Darma berada di {{ $wisata->alamat }}</p>
             </div>
         </div>        
     </section>
 
+    <button type="button" class="btn btn-floating btn-lg" id="btn-back-to-top" style="background-color: #04757d">
+        <i class='bx bx-chevron-up text-white'></i>
+      </button>
+  
+  
+      <script src="/js/up_to_top.js"></script>
+      
     <section class="deskripsi">
         <div class="container">
             <div class="d-flex flex-column pt-5 mt-5">
@@ -22,7 +29,7 @@
                 <div class="col-md-6" style="color: #939394;">
                     <p>{{ $wisata->deskripsi }}</p>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5" style="z-index: -1;">
                     {{-- <h1>GEOLOCATION</h1> --}}
                     <div id="leafletMap-registration" style="height: 300px;width:100%;"></div>
                     <input type="hidden" value="{{ $wisata->latitude }}" id="latitude">
@@ -33,7 +40,6 @@
                 <div class="d-flex flex-column pt-5">
                     <span class="fw-bold fs-4">Fasilitas Wisata</span>
                     <label class="strip"></label>
-
                     <ul>
                         <li>Area Kemping</li>
                         <li>Kolam Renang Anak-anak</li>
@@ -41,9 +47,9 @@
                         <li>Cottage</li>
                     </ul>
                 </div>
-                <div class="d-flex flex-column pt-5 pb-5 mb-5">
+                <div class=" btn-booking d-flex flex-column pt-5 pb-5 mb-5">
                     <span class="fw-bold fs-4">Booking Tiket Wisata </span>
-                    <button type="button" class="btn btn-info text-white w-25" data-bs-toggle="modal" data-bs-target="#tiket" >
+                    <button type="button" class="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#tiket" >
                         Klik Untuk Booking Tiket!!!
                     </button>
                 </div>

@@ -64,7 +64,7 @@
     <!-- TENTANG -->
     <section class="tentang" style="margin-bottom: 10em;">
         <div class="container d-flex align-items-center justify-content-center flex-column">
-            <div class="d-flex flex-column m-5">
+            <div class="d-flex flex-column pt-5">
                 <span class="title fw-bold">TENTANG KAMI</span>
                 <label class="strip"></label>
             </div>
@@ -249,6 +249,10 @@
             </div>
         </div>
     </section>
+    <button type="button" class="btn btn-floating btn-lg" id="btn-back-to-top" style="background-color: #04757d">
+        <i class='bx bx-chevron-up text-white'></i>
+    </button>
+    <script src="/js/up_to_top.js"></script>
 </body>
 
 </html>

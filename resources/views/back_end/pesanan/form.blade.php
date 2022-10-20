@@ -63,17 +63,18 @@
           </div>
           <div class="col-md">
             <?php 
-              // mengambil string nama 3huruf awalnya
-               $nama = substr($wisata->nama_wisata, 0,3);
-              //  Membuat No Tiket Otomatis
-               if ($tiket == '0001') {
-                $noTiket = $nama . $tiket;
-               } else {
-                $tiket = (int) substr($tiket, 4, 4);
-                $noTiket = $nama . '000' . $tiket+1;
-                // ddd($noTiket);
-               }
-              //  ddd($noTiket)
+                // mengambil string nama 3huruf awalnya
+                $nama = substr($wisata->nama_wisata, 0,3);
+                $kodeTiket = $tiket;
+                //  Membuat No Tiket Otomatis
+                if ($kodeTiket == '0001') {
+                  $noTiket = $nama . $kodeTiket;
+                } else {
+                  $tiket = (int) substr($kodeTiket, 4, 4);
+                  $tiket += 1;
+                  $noTiket = $nama . '000' . $tiket;
+                }
+                //  ddd($noTiket)
               //  ($tiket == 0001) ? $nama . '000'. $tiket : $nama . '000' . $tiket+1
               //  if ($tiket->no_ticket == null) {
               //    $notiket = 0001;
