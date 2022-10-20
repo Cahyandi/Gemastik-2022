@@ -33,13 +33,24 @@
         </div>
         <div class="row g-3 mb-3">
           <div class="col-md">
-            <div class="form-group mb-3">
-              <label for="harga_ticket" class="form-label">Harga Tiket</label> 
-              <input type="number" class="form-control" id="harga_ticket" name="harga_ticket" value="{{ $wisata->harga_tiket }}" readonly>
-              @error('harga_ticket')
-              {{ $message }}
-              @enderror
-            </div>
+            @if (date('l' == 'saturday' || date('l') == 'sunday'))
+              <div class="form-group mb-3">
+                <label for="htm_weekend" class="form-label">HTM Sabtu Minggu</label> 
+                <input type="number" class="form-control" id="harga_ticket" name="htm_weekend" value="{{ $wisata->htm_weekend }}" readonly>
+                @error('htm_weekend')
+                {{ $message }}
+                @enderror
+              </div>
+            @else
+              <div class="form-group mb-3">
+                <label for="htm_weekday" class="form-label">HTM Hari Biasa</label> 
+                <input type="number" class="form-control" id="harga_ticket" name="htm_weekday" value="{{ $wisata->htm_weekday }}" readonly>
+                @error('htm_weekday')
+                {{ $message }}
+                @enderror
+              </div>
+                
+            @endif
           </div>
           <div class="col-md">
             <div class="form-group mb-3">

@@ -357,9 +357,11 @@
                     <i class='bx bxs-map'></i>
                     {{ $wisata->alamat }}
                   </small>
-                  <p class="card-text mt-3" style="color: #929293;">
-                    {{Str::limit($wisata->deskripsi, 80)}}
-                  </p>
+                  <div class="card-text mt-3" style="color: #929293;">
+                    <p>
+                      {!!Str::limit($wisata->deskripsi, 50)!!}
+                    </p>
+                  </div>
                   <a href="{{ route('show.wisata', $wisata->id) }}" class="w-100 btn btn-warning text-white d-flex align-items-center justify-content-center">
                     Let's go 
                     <i class='bx bxs-chevron-right'></i>

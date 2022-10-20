@@ -48,7 +48,8 @@ class WisataController extends Controller
             'nama_wisata' => 'required',
             'img_wisata' => 'required|image|file|max:2048',
             'alamat' => 'required',
-            'harga_tiket' => 'required',
+            'htm_weekday' => 'required',
+            'htm_weekend' => 'required',
             'deskripsi' => 'required',
             'latitude' => 'required',
             'longitude' => 'required'
@@ -112,7 +113,8 @@ class WisataController extends Controller
             'dinas_id' => 'required',
             'nama_wisata' => 'required',
             'alamat' => 'required',
-            'harga_tiket' => 'required',
+            'htm_weekday' => 'required',
+            'htm_weekend' => 'required',
             'deskripsi' => 'required',
             'latitude' => 'required',
             'longitude' => 'required'

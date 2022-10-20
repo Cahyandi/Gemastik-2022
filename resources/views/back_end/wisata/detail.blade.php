@@ -9,8 +9,11 @@
             <img src="{{ asset('storage/'. $wisata->img_wisata) }}" class="card-img-top">
             <div class="card-body">
               <h5 class="card-title">{{ $wisata->nama_wisata }}</h5>
-              <p class="card-text">{{ $wisata->deskripsi }}.</p>
-              <p class="card-text"><small class="text-muted">{{ $wisata->alamat }}</small></p>
+              <p class="card-text">{!! $wisata->deskripsi !!}</p>
+              <p class="card-text">Alamat : <small class="text-muted">{{ $wisata->alamat }}</small></p>
+              <p class="card-text">HTM Hari Biasa : <span class="badge text-bg-success text-dark">RP. {{ number_format($wisata->htm_weekday, 0,',','.') }}</span></p>
+              <p class="card-text">HTM Sabtu-Minggu : <span class="badge text-bg-secondary text-dark">RP. {{ number_format($wisata->htm_weekend, 0,',','.') }}</span></p>
+
               <p class="card-text">Koordinat : {{ $wisata->latitude . $wisata->longitude }}</p>
 
               <div id="leafletMap-registration" style="height: 300px;width:100%;"></div>
@@ -19,20 +22,6 @@
             </div>
           </div>
           <a href="/dinas/wisata" class="btn btn-primary my-3">Back</a>
-          {{-- <h4>{{ $wisata->nama_wisata }}</h4>
-          <img src="{{ asset('storage/'. $wisata->img_wisata) }}" alt="">
-            <h5>deskripsi  :</h5>
-            <p>{{ $wisata->deskripsi }}</p>
-            <h5>Alamat  :</h5>
-            <p>{{ $wisata->alamat }}</p>
-            <h4>Koordinat : {{ $wisata->latitude . $wisata->longitude }}</h4>
-
-            <div id="leafletMap-registration" style="height: 300px;width:50%;"></div>
-            <input type="hidden" value="{{ $wisata->latitude }}" id="latitude">
-            <input type="hidden" value="{{ $wisata->longitude }}" id="longitude">
-
-            <a href="/wisata" class="btn btn-primary my-3">Back</a> --}}
-
         </div>
       </div>
     </div>

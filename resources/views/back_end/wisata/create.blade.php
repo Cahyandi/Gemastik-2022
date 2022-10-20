@@ -1,7 +1,7 @@
 @extends('back_end.layouts.main')
 
 @section('section')
-    <div class="mt-4">
+    <div class="mt-3">
       <h3>Create Wisata</h3>
       <div class="row mt-4">
         <div class="col-md-8">
@@ -28,26 +28,32 @@
                 </div>
               </div>
             </div>
+            <div class="row g-3 mb-3">
+              <div class="col-md">
+                <div class="form-group">
+                  <label for="htm_weekday" class="form-label">HTM Hari Biasa</label> 
+                  <input type="number" class="form-control" id="htm_weekday" name="htm_weekday" value="{{ old('htm_weekday') }}">
+                  @error('htm_weekday')
+                  {{ $message }}
+                  @enderror
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-group">
+                  <label for="htm_weekend" class="form-label">HTM Sabtu-Minggu</label> 
+                  <input type="number" class="form-control" id="htm_weekend" name="htm_weekend" value="{{ old('htm_weekend') }}">
+                  @error('htm_weekend')
+                  {{ $message }}
+                  @enderror
+                </div>
+              </div>
+            </div>
             <div class="form-group mb-3">
               <label for="alamat" class="form-label">Alamat</label>
                 <input type="text" class="form-control" id="alamat" name="alamat" value="{{ old('alamat') }}">
                 @error('alamat')
                   {{ $message }}
                 @enderror
-            </div>
-            <div class="form-group mb-3">
-              <label for="tiket" class="form-label">Harga Ticket</label> 
-              <input type="number" class="form-control" id="tiket" name="harga_tiket" value="{{ old('harga_tiket') }}">
-              @error('harga_tiket')
-                {{ $message }}
-              @enderror
-            </div>
-            <div class="form-group mb-3">
-              <label for="deskripsi" class="form-label">Deskripsi</label> 
-              <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ old('deskripsi') }}">
-              @error('deskripsi')
-                  {{ $message }}
-              @enderror
             </div>
 
             <div id="leafletMap-registration" style="height: 300px"></div>
@@ -72,6 +78,16 @@
                   @enderror
                 </div>
               </div>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="deskripsi" class="form-label">Deskripsi</label> 
+              <textarea name="deskripsi" id="editor" cols="40" rows="100" value="">Deskripsi :  <br><br><br>
+                       Fasilitas :  <br>
+              </textarea>
+              @error('deskripsi')
+                  {{ $message }}
+              @enderror
             </div>
 
             <button type="submit" class="btn btn-primary mt-3">Kirim</button>
@@ -122,5 +138,11 @@
       });
   
       leafletMap.addControl(search);
+      // Selesai Leaflet
+
+      ClassicEditor.create(document.querySelector('#editor'))
+                   .catch( error => {
+                    console.error(error);
+                   });
     </script>
 @endsection

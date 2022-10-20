@@ -39,19 +39,26 @@
                       {{ $message }}
                 @enderror
             </div>
-            <div class="form-group mb-3">
-              <label for="tiket" class="form-label">Harga Ticket</label> 
-              <input type="number" class="form-control" id="tiket" name="harga_tiket" value="{{ $wisata->harga_tiket }}">
-              @error('harga_tiket')
+            <div class="row g-3 mb-3">
+              <div class="col-md">
+                <div class="form-group">
+                  <label for="htm_weekday" class="form-label">HTM Hari Biasa</label> 
+                  <input type="number" class="form-control" id="htm_weekday" name="htm_weekday" value="{{ $wisata->htm_weekday }}">
+                  @error('htm_weekday')
                   {{ $message }}
-              @enderror
-            </div>
-            <div class="form-group mb-3">
-              <label for="deskripsi" class="form-label">Deskripsi</label> 
-              <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ $wisata->deskripsi }}">
-              @error('deskripsi')
+                  @enderror
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-group">
+                  <label for="htm_weekend" class="form-label">HTM Sabtu-Minggu</label> 
+                  <input type="number" class="form-control" id="htm_weekend" name="htm_weekend" value="{{ $wisata->htm_weekend }}">
+                  @error('htm_weekend')
                   {{ $message }}
-              @enderror
+                  @enderror
+                </div>
+              </div>
             </div>
 
             <div id="leafletMap-registration" style="height: 300px"></div>
@@ -69,6 +76,17 @@
                   <input type="text" class="form-control" id="longitude" name="longitude" value="{{ $wisata->longitude }}">
                 </div>
               </div>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="deskripsi" class="form-label">Deskripsi</label> 
+              {{-- <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ $wisata->deskripsi }}"> --}}
+              <textarea name="deskripsi" id="editor" cols="30" rows="10">
+                {!! $wisata->deskripsi !!}
+              </textarea>
+              @error('deskripsi')
+                  {{ $message }}
+              @enderror
             </div>
 
             <a href="/dinas/wisata" class="btn btn-secondary my-3">Back</a>
@@ -114,5 +132,10 @@
           };
           theMarker = L.marker([latitude,longitude]).addTo(leafletMap);  
       });
+
+      ClassicEditor.create(document.querySelector('#editor'))
+                   .catch( error => {
+                    console.error(error);
+                   });
     </script>
 @endsection

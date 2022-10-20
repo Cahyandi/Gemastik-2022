@@ -20,7 +20,7 @@
             </div>
             <div class="row g-2 justify-content-between align-items-center ">
                 <div class="col-md-6" style="color: #939394;">
-                    <p>{{ $wisata->deskripsi }}</p>
+                    <p>{!! $wisata->deskripsi !!}</p>
                 </div>
                 <div class="col-md-5">
                     {{-- <h1>GEOLOCATION</h1> --}}
@@ -28,7 +28,12 @@
                     <input type="hidden" value="{{ $wisata->latitude }}" id="latitude">
                     <input type="hidden" value="{{ $wisata->longitude }}" id="longitude">
                 </div>
-                <h3 class="pb-3 pt-3"><label style="color: #fe8903;">Harga: Rp.{{ number_format($wisata->harga_tiket,0,',','.') }} /</label> Orang</h3>
+                @if (date('l') == 'saturday' || date('l') == 'sunday')
+                    <h3 class="pb-3 pt-3"><label style="color: #fe8903;">HTM Sabtu Minggu: Rp.{{ number_format($wisata->htm_weekend,0,',','.') }} /</label> Orang</h3>
+                @else
+                    <h3 class="pb-3 pt-3"><label style="color: #fe8903;">HTM Hari Biasa: Rp.{{ number_format($wisata->htm_weekday,0,',','.') }} /</label> Orang
+                    </h3>  
+                @endif  
 
                 <div class="d-flex flex-column pt-5">
                     <span class="fw-bold fs-4">Fasilitas Wisata</span>

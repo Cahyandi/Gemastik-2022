@@ -37,9 +37,6 @@
                ?> 
               <td>
                 {{ QrCode::size(100)->generate($code) }}
-                {{-- <div>
-                  <canvas id="canvas" height="100" width="100"></canvas>
-                </div> --}}
               </td>
               <td>{{ $tiket->no_ticket }}</td>
               {{-- <td>{{ $tiket->user->username }}</td> --}}
