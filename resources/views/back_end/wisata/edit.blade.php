@@ -46,6 +46,7 @@
                   <input type="number" class="form-control" id="htm_weekday" name="htm_weekday" value="{{ $wisata->htm_weekday }}">
                   @error('htm_weekday')
                   {{ $message }}
+<<<<<<< HEAD
                   @enderror
                 </div>
               </div>
@@ -55,6 +56,15 @@
                   <label for="htm_weekend" class="form-label">HTM Sabtu-Minggu</label> 
                   <input type="number" class="form-control" id="htm_weekend" name="htm_weekend" value="{{ $wisata->htm_weekend }}">
                   @error('htm_weekend')
+=======
+              @enderror
+            </div>
+            <div class="form-group mb-3">
+              <label for="deskripsi" class="form-label">Deskripsi</label> 
+              <textarea  cols="30" rows="10" class="form-control" id="deskripsi" name="deskripsi">{{$wisata->deskripsi}}</textarea>
+
+              @error('deskripsi')
+>>>>>>> bbb81f457511bd4d59967b68eed3cdaeb067bb5e
                   {{ $message }}
                   @enderror
                 </div>

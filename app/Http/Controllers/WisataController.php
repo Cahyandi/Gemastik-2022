@@ -16,8 +16,10 @@ class WisataController extends Controller
     public function index()
     {
         return view('back_end.wisata.index', [
-            'wisatas' => Wisata::all(),
-            'petugasWisata' => Wisata::where('dinas_id', auth('dinas')->user()->id)->first(), 
+            'wisataApprove' => Wisata::whereStatus('approve')->get(),
+            'wisataReject' => Wisata::whereStatus('reject')->get(),
+            'wisataPending' => Wisata::whereStatus('pending')->get(),
+            'petugasWisata' => Wisata::where('dinas_id', auth('dinas')->user()->id)->first(),
             'title' => 'Daftar Wisata'
         ]);
     }
@@ -56,6 +58,8 @@ class WisataController extends Controller
         ]);
 
         $store['img_wisata'] = $request->file('img_wisata')->store('wisata');
+        $store['status'] = 'pending';
+        $store['total-rating'] = 0;
 
         wisata::create($store);
 
@@ -140,7 +144,7 @@ class WisataController extends Controller
     public function destroy($id)
     {
         $image = wisata::where('id', $id)->first();
-        
+
         wisata::destroy($id);
         Storage::delete($image->img_wisata);
 

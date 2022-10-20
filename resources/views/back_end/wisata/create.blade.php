@@ -55,6 +55,23 @@
                   {{ $message }}
                 @enderror
             </div>
+<<<<<<< HEAD
+=======
+            <div class="form-group mb-3">
+              <label for="tiket" class="form-label">Harga Ticket</label> 
+              <input type="number" class="form-control" id="tiket" name="harga_tiket" value="{{ old('harga_tiket') }}">
+              @error('harga_tiket')
+                {{ $message }}
+              @enderror
+            </div>
+            <div class="form-group mb-3">
+              <label for="deskripsi" class="form-label">Deskripsi</label> 
+              <textarea  cols="30" rows="10" class="form-control" id="deskripsi" name="deskripsi" value="{{ old('deskripsi') }}"></textarea>
+              @error('deskripsi')
+                  {{ $message }}
+              @enderror
+            </div>
+>>>>>>> bbb81f457511bd4d59967b68eed3cdaeb067bb5e
 
             <div id="leafletMap-registration" style="height: 300px"></div>
 

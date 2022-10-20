@@ -25,16 +25,9 @@
           @foreach ($tikets as $tiket)
             <tr>
               <td>{{ $loop->iteration }}</td>
-              <?php 
-                // $qr = [
-                //   'No Ticket' => $tiket->no_ticket,
-                //   'Nama'  => $tiket->nama_pemesan,
-                //   'Tempat' => $tiket->wisata->nama_wisata,
-                //   'Status' => $tiket->status
-                // ];
-                // $code = response()->json($qr, 200);
+              <?php
                 $code  = "NoTicket : $tiket->no_ticket \nNama : $tiket->nama_pemesan \nTempat Wisata  : ". $tiket->wisata->nama_wisata."\nStatus : $tiket->status \nTglBooking  : $tiket->tgl_booking";
-               ?> 
+              ?> 
               <td>
                 {{ QrCode::size(100)->generate($code) }}
               </td>

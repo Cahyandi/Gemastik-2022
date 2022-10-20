@@ -2,12 +2,16 @@
 
 use App\Http\Controllers\AuthDinasController;
 use App\Http\Controllers\AuthUserController;
+use App\Http\Controllers\ChangeStatusPariwisata;
 use App\Http\Controllers\DatapetugasController;
 use App\Http\Controllers\DatauserController;
+use App\Http\Controllers\KomentarController;
 use App\Http\Controllers\petugas\DataticketController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\TiketController;
 use App\Http\Controllers\User\WisataController as UserWisataController;
 use App\Http\Controllers\WisataController;
+use App\Models\Post;
 use App\Models\Ulasan;
 use App\Models\Wisata;
 use Illuminate\Support\Facades\Route;
@@ -25,8 +29,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index', [
-        'wisatas' => Wisata::all(),
-        'inspirations' => Wisata::orderBy('total_rating', 'DESC')->take(5)->get()
+        'wisatas' => Wisata::whereStatus('approve')->get(),
+        'inspirations' => Wisata::orderBy('total_rating', 'DESC')->take(4)->get(),
+        'posts' => Post::all()
     ]);
 });
 Route::get('/wisata/{wisata}', [UserWisataController::class, 'show'])->name('show.wisata');
@@ -68,6 +73,11 @@ Route::get('/login-dinas', function () {
 Route::get('/registrasi-petugas', function () {
     return view('registrasi_petugas');
 });
+
+Route::post('/changeStatusPariwisata/{pariwisata}', ChangeStatusPariwisata::class)->name('change.status.pariwisata');
+
+Route::resource('/posts', PostController::class)->name('posts', '.');
+Route::post('/komentar/{post}', KomentarController::class)->name('komentar.store');
 
 Route::post('authenticate-dinas', [AuthDinasController::class, 'authenticate']);
 Route::post('register-petugas', [AuthDinasController::class, 'registerPetugas']);

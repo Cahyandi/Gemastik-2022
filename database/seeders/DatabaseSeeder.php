@@ -14,7 +14,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
         // $this->call(WisataSeeder::class);
+=======
+        $this->call([
+            WisataSeeder::class,
+            UserSeeder::class,
+            DinasSeeder::class,
+            PostSeeder::class
+        ]);
+>>>>>>> bbb81f457511bd4d59967b68eed3cdaeb067bb5e
         // \App\Models\User::factory(10)->create();
         Dinas::insert([
             [
