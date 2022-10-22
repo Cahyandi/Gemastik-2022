@@ -208,23 +208,21 @@
           <span class="title fw-bold">INPIRASI WISATA</span>
           <label class="strip"></label>
         </div>
-        @auth
-        <a href="{{ route('posts.create') }}" class="btn btn-primary">Bikin Postingan</a>
-        @endauth
 
         <div class="inner container" style="background-color: #d9d9d930">
           <div class="row d-flex justify-content-center row-cols-2 row-cols-sm-4 row-cols-lg-5 g-3 g-lg-4 clearfix">
-            @foreach ($posts as $post)
+            @forelse ($ulasans as $ulasan)
             <div class="card" style="width: 18rem;">
-              <img src="{{ asset('storage/'.$post->img) }}" class="card-img-top">
+              <img src="{{ asset('storage/'.$ulasan->foto) }}" class="card-img-top">
               <div class="card-body">
-                <h5 class="card-title">{{ $post->user->name }}</h5>
-                <small class="text-secondary">{{ $post->wisata->nama_wisata }}</small>
-                <p class="card-text">{{ Str::limit($post->caption, 100, '...') }}</p>
-                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">Lihat Postingan</a>
+                <h5 class="card-title">{{ $ulasan->user->name }}</h5>
+                <small class="text-secondary">{{ $ulasan->wisata->nama_wisata }}</small>
+                <p class="card-text">{{ Str::limit($ulasan->komentar, 100, '...') }}</p>
               </div>
             </div>
-            @endforeach
+            @empty
+                <h5>Belum ada inspirasi wisata</h5> 
+            @endforelse
           </div>
         </div>
       </div>

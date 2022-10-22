@@ -17,6 +17,9 @@ class WisataSeeder extends Seeder
         Wisata::insert([
             [
                 'dinas_id' => 2,
+                'htm_weekday' => 2000,
+                'htm_weekend' => 5000,
+                'fasilitas' => 'test',
                 'nama_wisata' => "Waduk Darma",
                 'img_wisata' => "wisata/XE631I6S4kPBhIrjk3aPROaDJlsaEjQ4BXN2hItU.jpg",
                 'alamat' => "Desa Jagara, Kecamatan Darma",
@@ -31,6 +34,9 @@ class WisataSeeder extends Seeder
             ],
             [
                 'dinas_id' => 2,
+                'htm_weekday' => 2000,
+                'htm_weekend' => 5000,
+                'fasilitas' => 'test',
                 'nama_wisata' => "Cibulan",
                 'img_wisata' => "wisata/XE631I6S4kPBhIrjk3aPROaDJlsaEjQ4BXN2hItU.jpg",
                 'alamat' => "Maniskidul, Kec. Jalaksana",
@@ -45,6 +51,9 @@ class WisataSeeder extends Seeder
             ],
             [
                 'dinas_id' => 2,
+                'htm_weekday' => 2000,
+                'htm_weekend' => 5000,
+                'fasilitas' => 'test',
                 'nama_wisata' => "Tenjo Laut",
                 'img_wisata' => "wisata/XE631I6S4kPBhIrjk3aPROaDJlsaEjQ4BXN2hItU.jpg",
                 'alamat' => "Mandirancan, Kec. Cigugur",
@@ -59,6 +68,9 @@ class WisataSeeder extends Seeder
             ],
             [
                 'dinas_id' => 2,
+                'htm_weekday' => 2000,
+                'htm_weekend' => 5000,
+                'fasilitas' => 'test',
                 'nama_wisata' => "Curug Bangkong",
                 'img_wisata' => "wisata/XE631I6S4kPBhIrjk3aPROaDJlsaEjQ4BXN2hItU.jpg",
                 'alamat' => " Kertawirama, Kec. Nusaherang",
@@ -73,6 +85,9 @@ class WisataSeeder extends Seeder
             ],
             [
                 'dinas_id' => 2,
+                'htm_weekday' => 2000,
+                'htm_weekend' => 5000,
+                'fasilitas' => 'test',
                 'nama_wisata' => "Buper Ipukan",
                 'img_wisata' => "wisata/XE631I6S4kPBhIrjk3aPROaDJlsaEjQ4BXN2hItU.jpg",
                 'alamat' => "Cisantana, Kec. Cigugur",
@@ -87,6 +102,9 @@ class WisataSeeder extends Seeder
             ],
             [
                 'dinas_id' => 2,
+                'htm_weekday' => 2000,
+                'htm_weekend' => 5000,
+                'fasilitas' => 'test',
                 'nama_wisata' => "Sawah Lope",
                 'img_wisata' => "wisata/XE631I6S4kPBhIrjk3aPROaDJlsaEjQ4BXN2hItU.jpg",
                 'alamat' => "Cikaso, Kec. Kramatmulya",

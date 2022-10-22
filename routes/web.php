@@ -11,7 +11,6 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\TiketController;
 use App\Http\Controllers\User\WisataController as UserWisataController;
 use App\Http\Controllers\WisataController;
-use App\Models\Post;
 use App\Models\Ulasan;
 use App\Models\Wisata;
 use Illuminate\Support\Facades\Route;
@@ -31,7 +30,7 @@ Route::get('/', function () {
     return view('index', [
         'wisatas' => Wisata::whereStatus('approve')->get(),
         'inspirations' => Wisata::orderBy('total_rating', 'DESC')->take(4)->get(),
-        'posts' => Post::all()
+        'ulasans' => Ulasan::latest()->take(4)->get(),
     ]);
 });
 Route::get('/wisata/{wisata}', [UserWisataController::class, 'show'])->name('show.wisata');
@@ -76,8 +75,6 @@ Route::get('/registrasi-petugas', function () {
 
 Route::post('/changeStatusPariwisata/{pariwisata}', ChangeStatusPariwisata::class)->name('change.status.pariwisata');
 
-Route::resource('/posts', PostController::class)->name('posts', '.');
-Route::post('/komentar/{post}', KomentarController::class)->name('komentar.store');
 
 Route::post('authenticate-dinas', [AuthDinasController::class, 'authenticate']);
 Route::post('register-petugas', [AuthDinasController::class, 'registerPetugas']);

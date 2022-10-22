@@ -125,9 +125,12 @@
             </section>
             <div class="col-md-4">
                 <h3 class="mb-5">Berikan Ulasan</h3>
-                <form method="POST" action="{{ route('storeulasan.wisata', $wisata->id) }}">
+                <form method="POST" action="{{ route('storeulasan.wisata', $wisata->id) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
+                        <label for="foto" class="form-label">Kirim Foto :</label>
+                        <input type="file" name="foto" id="foto">
+                        <br>
                         <label for="komentar" class="form-label">Masukan Komentar Anda :</label>
                         <textarea class="form-control" style="background: #f7f5f5; min-height: 150px" id="komentar" name="komentar" rows="3"></textarea>
                         @error('komentar')

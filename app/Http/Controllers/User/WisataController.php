@@ -24,6 +24,7 @@ class WisataController extends Controller
     {
 
         $request->validate([
+            'foto' => 'required',
             'komentar' => 'required',
             'rating' => 'required'
         ]);
@@ -42,6 +43,7 @@ class WisataController extends Controller
         Ulasan::create([
             'user_id' => auth()->user()->id,
             'wisata_id' => $wisata->id,
+            'foto' => $request->file('foto')->store('komentars'),
             'komentar' => $request->komentar,
             'rating' => $request->rating,
         ]);
